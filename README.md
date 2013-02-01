@@ -1,5 +1,7 @@
 # dotfiles
 
+The dotfiles we use when pairing.
+
 Uses the `homesick` format.
 
 ## Installation
