@@ -20,6 +20,10 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
 
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
 " Wrapping
 set showbreak=...
 set wrap linebreak nolist
