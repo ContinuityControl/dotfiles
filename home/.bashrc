@@ -4,7 +4,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # From /etc/profile
-for i in $HOME/.bash/*.sh ; do
+for i in $HOME/.bash/* ; do
   if [ -r "$i" ]; then
     if [ "${-#*i}" != "$-" ]; then 
       . "$i"
