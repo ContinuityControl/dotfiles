@@ -64,6 +64,12 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 
+syntax enable
+let g:solarized_termtrans = 1
+set background=dark
+let g:solarized_termcolors=16
+colorscheme solarized
+
 " Enable per-directory .vimrc files, but don't allow insecure commands.
 set exrc
 set secure
