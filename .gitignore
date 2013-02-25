@@ -1,6 +1,2 @@
 home/.vim/.netrwhist
 *.sw[nop]
-
-.ssh/authorized_keys
-.ssh/known_hosts
-.ssh/ssh_auth_sock
