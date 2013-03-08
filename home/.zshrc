@@ -3,7 +3,12 @@ export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 export ZSH_THEME="continuity"
 plugins=(git git-flow rails3 ruby osx gem vi-mode)
 
-alias rvm-prompt=$(which rvm-prompt) # http://stackoverflow.com/questions/6636066/zsh-rvm-woes-rvm-prompt-doesnt-resolve
+if [[ -f $HOME/rvm/bin/rvm-prompt ]]; then
+  alias rvm-prompt=$HOME/rvm/bin/rvm-prompt
+elif [[ -f /usr/local/rvm/bin/rvm-prompt ]]; then
+  alias rvm-prompt=/usr/local/rvm/bin/rvm-prompt
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 #disable ctrl-s/suspension
