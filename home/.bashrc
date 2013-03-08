@@ -15,3 +15,5 @@ for i in $HOME/.bash/* ; do
 done
 
 export PATH="$HOME/.bin:$PATH"
+
+source "$HOME/.vi-everywhere/bash.d/init.sh"
