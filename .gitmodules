@@ -73,3 +73,6 @@
 [submodule "home/.vim/bundle/DeleteTrailingWhitespace"]
 	path = home/.vim/bundle/DeleteTrailingWhitespace
 	url = git@github.com:vim-scripts/DeleteTrailingWhitespace.git
+[submodule "home/.vim/bundle/vim-jst"]
+	path = home/.vim/bundle/vim-jst
+	url = git@github.com:briancollins/vim-jst.git
