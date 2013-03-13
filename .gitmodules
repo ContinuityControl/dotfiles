@@ -76,3 +76,6 @@
 [submodule "home/.vim/bundle/vim-jst"]
 	path = home/.vim/bundle/vim-jst
 	url = git@github.com:briancollins/vim-jst.git
+[submodule "home/.vim/bundle/ShowTrailingWhitespace"]
+	path = home/.vim/bundle/ShowTrailingWhitespace
+	url = git@github.com:vim-scripts/ShowTrailingWhitespace.git
