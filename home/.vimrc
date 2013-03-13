@@ -70,6 +70,11 @@ set background=dark
 let g:solarized_termcolors=16
 colorscheme solarized
 
+let g:ShowTrailingWhitespace = 1
+highlight ShowTrailingWhitespace ctermbg=Red guibg=Red
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'
+
 " Enable per-directory .vimrc files, but don't allow insecure commands.
 set exrc
 set secure
