@@ -19,6 +19,12 @@ setopt interactivecomments
 bindkey '^R' history-incremental-search-backward
 autoload -U zrecompile
 
+#ignore obnoxious stuff
+alias git='nocorrect git'
+alias be='bundle exec'
+alias be-the='bundle exec'
+alias be-a='bundle exec'
+
 # Add the following to your ~/.bashrc or ~/.zshrc
 #
 # Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
