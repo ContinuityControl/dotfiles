@@ -79,3 +79,6 @@
 [submodule "home/.vim/bundle/ShowTrailingWhitespace"]
 	path = home/.vim/bundle/ShowTrailingWhitespace
 	url = git@github.com:vim-scripts/ShowTrailingWhitespace.git
+[submodule "home/.vim/bundle/nerdtree"]
+	path = home/.vim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
