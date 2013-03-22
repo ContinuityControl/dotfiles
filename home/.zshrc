@@ -42,3 +42,5 @@ alias unhitch='hitch -u'
 
 # Uncomment to persist pair info between terminal instances
 hitch
+
+__rvm_project_rvmrc
