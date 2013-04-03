@@ -78,3 +78,8 @@ let g:DeleteTrailingWhitespace_Action = 'delete'
 " Enable per-directory .vimrc files, but don't allow insecure commands.
 set exrc
 set secure
+
+" bind nerdtree to \
+map \ :NERDTreeToggle<CR>
+
+map <Leader>p gg^/\d\+-ywgg$a [#pa]
