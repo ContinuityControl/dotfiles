@@ -82,4 +82,4 @@ set secure
 " bind nerdtree to \
 map \ :NERDTreeToggle<CR>
 
-map <Leader>p gg^/\d\+-ywgg$a [#pa]
+map <Leader>p gg^/\d\+-ywgg$a[#pa]
