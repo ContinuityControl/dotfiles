@@ -1,9 +1,6 @@
 [submodule "home/.vim/bundle/html5.vim"]
 	path = home/.vim/bundle/html5.vim
 	url = git://github.com/othree/html5.vim.git
-[submodule "home/.vim/bundle/snipmate-snippets"]
-	path = home/.vim/bundle/snipmate-snippets
-	url = git://github.com/honza/snipmate-snippets.git
 [submodule "home/.vim/bundle/supertab"]
 	path = home/.vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
