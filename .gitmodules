@@ -69,13 +69,13 @@
 	url = git://github.com/mmai/wikilink.git
 [submodule "home/.vim/bundle/DeleteTrailingWhitespace"]
 	path = home/.vim/bundle/DeleteTrailingWhitespace
-	url = git@github.com:vim-scripts/DeleteTrailingWhitespace.git
+	url = git://github.com/vim-scripts/DeleteTrailingWhitespace.git
 [submodule "home/.vim/bundle/vim-jst"]
 	path = home/.vim/bundle/vim-jst
-	url = git@github.com:briancollins/vim-jst.git
+	url = git://github.com/briancollins/vim-jst.git
 [submodule "home/.vim/bundle/ShowTrailingWhitespace"]
 	path = home/.vim/bundle/ShowTrailingWhitespace
-	url = git@github.com:vim-scripts/ShowTrailingWhitespace.git
+	url = git://github.com/vim-scripts/ShowTrailingWhitespace.git
 [submodule "home/.vim/bundle/nerdtree"]
 	path = home/.vim/bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
+	url = git://github.com/scrooloose/nerdtree.git
