@@ -6,3 +6,4 @@
   df = diff --color
   lg = log -p
   lp = log --oneline --graph --color
+  dfw = diff --word-diff=color
