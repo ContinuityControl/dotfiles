@@ -79,6 +79,3 @@
 [submodule "home/.vim/bundle/nerdtree"]
 	path = home/.vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "home/.vim/bundle/vim-numbertoggle"]
-	path = home/.vim/bundle/vim-numbertoggle
-	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
