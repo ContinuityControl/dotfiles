@@ -83,3 +83,7 @@ set secure
 map \ :NERDTreeToggle<CR>
 
 map <Leader>p gg^/\d\+-ywgg$a[#pa]
+
+if filereadable(glob("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
