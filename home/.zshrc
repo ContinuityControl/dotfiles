@@ -31,3 +31,8 @@ alias unhitch='hitch -u'
 hitch
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Allow for local environment configuration in ~/.zsh/*.zsh
+for config_file (~/.zsh/*.zsh); do
+  source $config_file
+done
