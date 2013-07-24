@@ -32,6 +32,9 @@ hitch
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+# tell nokogiri to use sysem libraries instead of compiling packaged libs
+export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
+
 # Allow for local environment configuration in ~/.zsh/*.zsh
 if [ -d ~/.zsh ]; then
   for config_file (~/.zsh/*.zsh); do
