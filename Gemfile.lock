@@ -4,7 +4,7 @@ GEM
     highline (1.6.19)
     hitch (1.0.1)
       highline (>= 1.6.2)
-    homesick (0.9.1)
+    homesick (0.9.4)
       thor (>= 0.14.0)
     thor (0.18.1)
 
