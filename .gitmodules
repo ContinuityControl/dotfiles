@@ -54,7 +54,7 @@
 	url = git://github.com/tpope/vim-repeat.git
 [submodule "home/.vim/bundle/vim-rspec"]
 	path = home/.vim/bundle/vim-rspec
-	url = git://github.com/taq/vim-rspec.git
+	url = git://github.com/skwp/vim-rspec.git
 [submodule "home/.vim/bundle/vim-ruby"]
 	path = home/.vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
