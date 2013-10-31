@@ -1,10 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    highline (1.6.19)
+    highline (1.6.20)
     hitch (1.0.1)
       highline (>= 1.6.2)
-    homesick (0.9.5)
+    homesick (0.9.6)
       thor (>= 0.14.0)
     thor (0.18.1)
 
