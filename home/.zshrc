@@ -14,6 +14,8 @@ setopt interactivecomments
 bindkey '^R' history-incremental-search-backward
 autoload -U zrecompile
 
+fliptable() { echo "（╯°□°）╯ ┻━┻"; } # Flip a table. Example usage: fsck -y /dev/sdb1 || fliptable
+
 #ignore obnoxious stuff
 alias git='nocorrect git'
 
