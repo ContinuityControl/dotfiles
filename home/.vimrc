@@ -90,3 +90,6 @@ if filereadable(glob("~/.vimrc.local"))
 endif
 
 vmap <Leader>z :call I18nTranslateString()<CR>
+
+" Replace double quotes with single quotes on the current line.
+nmap <Leader>' :.s/"/'/g<CR>:nohlsearch<CR>
