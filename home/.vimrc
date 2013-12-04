@@ -93,3 +93,15 @@ vmap <Leader>z :call I18nTranslateString()<CR>
 
 " Replace double quotes with single quotes on the current line.
 nmap <Leader>' :.s/"/'/g<CR>:nohlsearch<CR>
+
+abbrev teh the
+abbrev yuo you
+abbrev hte the
+abbrev nad and
+abbrev frmo from
+abbrev buig bug
+abbrev jsut just
+abbrev tempalte template
+abbrev teamplate template
+abbrev flase false
+abbrev ptus puts
