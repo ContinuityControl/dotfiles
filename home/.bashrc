@@ -6,7 +6,7 @@ fi
 # From /etc/profile
 for i in $HOME/.bash/* ; do
   if [ -r "$i" ]; then
-    if [ "${-#*i}" != "$-" ]; then 
+    if [ "${-#*i}" != "$-" ]; then
       . "$i"
     else
       . "$i" >/dev/null
