@@ -8,6 +8,7 @@ call pathogen#infect()
 set number
 set ruler
 syntax on
+set lazyredraw " Don't try to continuously update the screen during macros (makes things go faster)
 
 set smartindent
 
