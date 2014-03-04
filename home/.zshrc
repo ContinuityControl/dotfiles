@@ -63,3 +63,7 @@ if [ -d ~/.zsh ]; then
     source $config_file
   done
 fi
+
+# RVM is a silly thing. This fixes tmux not loading gemset
+# http://stackoverflow.com/a/6097090/3010499
+cd .
