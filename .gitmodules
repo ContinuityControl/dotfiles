@@ -91,3 +91,6 @@
 [submodule "home/.vim/bundle/CamelCaseMotion"]
 	path = home/.vim/bundle/CamelCaseMotion
 	url = git@github.com:bkad/CamelCaseMotion.git
+[submodule "home/.vim/bundle/taskpaper.vim"]
+	path = home/.vim/bundle/taskpaper.vim
+	url = git://github.com/davidoc/taskpaper.vim.git
