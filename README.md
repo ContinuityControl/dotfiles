@@ -12,3 +12,7 @@ Uses the `homesick` format.
     homesick clone    dotfiles
     homesick symlink  dotfiles
     homesick pull     dotfiles
+
+
+    cd ~/.homesick/repos/ContinuityControl/dotfiles
+    bundle
