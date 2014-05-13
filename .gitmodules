@@ -94,3 +94,6 @@
 [submodule "home/.vim/bundle/taskpaper.vim"]
 	path = home/.vim/bundle/taskpaper.vim
 	url = git://github.com/davidoc/taskpaper.vim.git
+[submodule "home/.vim/bundle/csv.vim"]
+	path = home/.vim/bundle/csv.vim
+	url = git://github.com/chrisbra/csv.vim.git
