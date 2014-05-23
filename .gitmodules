@@ -84,13 +84,13 @@
 	url = git://github.com/stefanoverna/vim-i18n.git
 [submodule "home/.vim/bundle/vim-textobj-user"]
 	path = home/.vim/bundle/vim-textobj-user
-	url = git://github.com:kana/vim-textobj-user.git
+	url = git://github.com/kana/vim-textobj-user.git
 [submodule "home/.vim/bundle/vim-textobj-rubyblock"]
 	path = home/.vim/bundle/vim-textobj-rubyblock
-	url = git://github.com:nelstrom/vim-textobj-rubyblock.git
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
 [submodule "home/.vim/bundle/CamelCaseMotion"]
 	path = home/.vim/bundle/CamelCaseMotion
-	url = git://github.com:bkad/CamelCaseMotion.git
+	url = git://github.com/bkad/CamelCaseMotion.git
 [submodule "home/.vim/bundle/taskpaper.vim"]
 	path = home/.vim/bundle/taskpaper.vim
 	url = git://github.com/davidoc/taskpaper.vim.git
