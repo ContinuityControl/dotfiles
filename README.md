@@ -9,6 +9,7 @@ Uses the `homesick` format.
 ### First Setup
 
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh # oh my zsh install
+    gem install homesick
     homesick clone    benjaminoakes/homesick-vi-everywhere
     homesick clone    ContinuityControl/dotfiles
     homesick symlink  homesick-vi-everywhere
