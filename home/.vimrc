@@ -63,6 +63,10 @@ let mapleader=","
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
+" Based on http://robots.thoughtbot.com/faster-grepping-in-vim
+" bind K to grep word under cursor
+nnoremap K :Ggrep "\b<C-R><C-W>\b"<CR>:cw<CR>
+
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 
