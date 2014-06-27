@@ -100,6 +100,11 @@ vmap <Leader>z :call I18nTranslateString()<CR>
 " Replace double quotes with single quotes on the current line.
 nmap <Leader>' :.s/"/'/g<CR>:nohlsearch<CR>
 
+" Change 1.8 hash syntax on the current line to 1.9.
+" NB: this isn't perfect, but it's pretty good.
+" List of valid symbol chars: https://gist.github.com/misfo/1072693
+map <Leader>9 :.s/:\([_a-z0-9]\{1,}\) *=>/\1: /g<CR>:nohlsearch<CR>
+
 abbrev teh the
 abbrev yuo you
 abbrev hte the
