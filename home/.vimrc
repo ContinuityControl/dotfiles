@@ -116,3 +116,8 @@ abbrev tempalte template
 abbrev teamplate template
 abbrev flase false
 abbrev ptus puts
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
