@@ -51,6 +51,9 @@ if has("autocmd")
   au BufNewFile,BufRead *.md setlocal spell
   au BufNewFile,BufRead *.markdown setlocal spell
 
+  " Enable spell checking for git commits
+  au FileType gitcommit setlocal spell
+
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
 
