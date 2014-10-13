@@ -47,6 +47,10 @@ if has("autocmd")
   " In Makefiles, use real tabs, not tabs expanded to spaces
   au FileType make set noexpandtab
 
+  " Enable spell checking for markdown files
+  au BufNewFile,BufRead *.md setlocal spell
+  au BufNewFile,BufRead *.markdown setlocal spell
+
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
 
