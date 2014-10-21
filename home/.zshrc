@@ -6,6 +6,8 @@ plugins=(git git-flow rails ruby osx gem vi-mode rvm bundler)
 
 source $ZSH/oh-my-zsh.sh
 
+export LC_ALL=en_US.UTF-8
+
 #disable ctrl-s/suspension
 stty stop undef
 setopt NO_FLOW_CONTROL
