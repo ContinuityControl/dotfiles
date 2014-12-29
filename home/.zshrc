@@ -16,6 +16,11 @@ setopt interactivecomments
 bindkey '^R' history-incremental-search-backward
 autoload -U zrecompile
 
+wemuxj() {
+  cd "$HOME/workspace/control"
+  wemux join "$1" && wemux
+}
+
 fliptable() { echo "（╯°□°）╯ ┻━┻"; } # Flip a table. Example usage: fsck -y /dev/sdb1 || fliptable
 alias tableflip='fliptable'
 trollface() {
