@@ -84,6 +84,7 @@ alias unhitch='hitch -u'
 hitch
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/bin # Make personal scripts available
 
 # tell nokogiri to use sysem libraries instead of compiling packaged libs
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
