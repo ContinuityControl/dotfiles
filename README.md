@@ -15,6 +15,11 @@ Uses the `homesick` format.
     homesick symlink  homesick-vi-everywhere
     homesick symlink  dotfiles
 
+### Optional
+If you're going to use hitch install it
+    gem install hitch
+
+
 ### Updates
 
     homesick pull     homesick-vi-everywhere
