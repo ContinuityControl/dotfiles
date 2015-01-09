@@ -74,9 +74,6 @@ alias rake='noglob rake'
 #
 # Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
 
-alias current_branch='git symbolic-ref --short HEAD'
-alias cb=current_branch
-
 hitch() {
   command hitch "$@"
   if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
