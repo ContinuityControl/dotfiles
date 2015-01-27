@@ -90,6 +90,18 @@ PATH=$PATH:$HOME/bin # Make personal scripts available
 # tell nokogiri to use sysem libraries instead of compiling packaged libs
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 
+# Put your pairing port in ~/.my_pairing_port (single line with just your port number)
+my_pairing_port=$(cat $HOME/.my_pairing_port)
+alias rsp="rails server --port ${my_pairing_port} puma"
+
+allied_rsp() {
+  BRANDING_HOST=alliedinfopoint.continuity.net rsp
+}
+
+complytrac_rsp() {
+  BRANDING_HOST=complytrac.continuity.net rsp
+}
+
 # Allow for local environment configuration in ~/.zsh/*.zsh
 if [ -d ~/.zsh ]; then
   for config_file (~/.zsh/*.zsh); do
