@@ -17,6 +17,7 @@ Uses the `homesick` format.
 
 ### Optional
 If you're going to use hitch install it by running bundle in the dotfiles directory
+    
     cd ~/.homesick/repos/dotfiles/home
     bundle
 
