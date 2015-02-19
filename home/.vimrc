@@ -112,8 +112,9 @@ nmap <Leader>' :.s/"/'/g<CR>:nohlsearch<CR>
 " List of valid symbol chars: https://gist.github.com/misfo/1072693
 map <Leader>9 :.s/:\([_a-z0-9]\{1,}\) *=>/\1:/g<CR>:nohlsearch<CR>
 
-" Set a toggle for pastemode
-map <leader>m :set paste!<CR>
+" Set a toggle for pastemode, using v which has a strong association with
+" paste
+map <leader>v :set paste!<CR>
 
 abbrev teh the
 abbrev yuo you
