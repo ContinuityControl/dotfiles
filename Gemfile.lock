@@ -6,6 +6,11 @@ GEM
       highline (>= 1.6.2)
     homesick (1.1.0)
       thor (>= 0.14.0)
+    rainbow (2.0.0)
+    sass (3.4.12)
+    scss-lint (0.33.0)
+      rainbow (~> 2.0)
+      sass (~> 3.4.1)
     thor (0.19.1)
 
 PLATFORMS
@@ -14,3 +19,4 @@ PLATFORMS
 DEPENDENCIES
   hitch
   homesick
+  scss-lint

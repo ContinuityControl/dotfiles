@@ -132,3 +132,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" enable scss-lint, gem install scss-lint is required
+let g:syntastic_scss_checkers = ['scss_lint']
