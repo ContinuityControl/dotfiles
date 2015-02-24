@@ -97,3 +97,6 @@
 [submodule "home/.vim/bundle/csv.vim"]
 	path = home/.vim/bundle/csv.vim
 	url = git://github.com/chrisbra/csv.vim.git
+[submodule "home/.vim/bundle/ctrlp.vim"]
+	path = home/.vim/bundle/ctrlp.vim
+	url = git@github.com:kien/ctrlp.vim.git
