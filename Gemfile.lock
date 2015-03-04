@@ -1,14 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    highline (1.7.0)
+    highline (1.7.1)
     hitch (1.0.2)
       highline (>= 1.6.2)
     homesick (1.1.2)
       thor (>= 0.14.0)
     rainbow (2.0.0)
-    sass (3.4.12)
-    scss-lint (0.33.0)
+    sass (3.4.13)
+    scss-lint (0.34.0)
       rainbow (~> 2.0)
       sass (~> 3.4.1)
     thor (0.19.1)
