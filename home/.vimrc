@@ -116,6 +116,19 @@ map <Leader>9 :.s/:\([_a-z0-9]\{1,}\) *=>/\1:/g<CR>:nohlsearch<CR>
 " paste
 map <leader>v :set paste!<CR>
 
+" Rename current file. Hit enter after adjusting file name. Will reload vim
+" buffer
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'))
+    if new_name != '' && new_name != old_name
+      exec ':saveas ' . new_name
+      exec ':silent !rm ' . old_name
+      redraw!
+    endif
+endfunction
+map <leader>mv :call RenameFile()<cr>
+
 abbrev teh the
 abbrev yuo you
 abbrev hte the
