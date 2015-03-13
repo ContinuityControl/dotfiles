@@ -100,3 +100,6 @@
 [submodule "home/.vim/bundle/ctrlp.vim"]
 	path = home/.vim/bundle/ctrlp.vim
 	url = git@github.com:kien/ctrlp.vim.git
+[submodule "home/.vim/bundle/vim-ruby-refactoring"]
+	path = home/.vim/bundle/vim-ruby-refactoring
+	url = git@github.com:ecomba/vim-ruby-refactoring.git
