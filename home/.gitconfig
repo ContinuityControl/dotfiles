@@ -7,3 +7,6 @@
   path = ~/.gitconfig.d/merge
   path = ~/.gitconfig.d/push
   path = ~/.gitconfig.d/user
+
+  # load local changes last so personal settings can override shared settings
+  path = ~/.gitconfig.d/local
