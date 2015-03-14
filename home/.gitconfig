@@ -1,0 +1,9 @@
+[include]
+  path = ~/.gitconfig.d/advice
+  path = ~/.gitconfig.d/alias
+  path = ~/.gitconfig.d/color
+  path = ~/.gitconfig.d/core
+  path = ~/.gitconfig.d/format
+  path = ~/.gitconfig.d/merge
+  path = ~/.gitconfig.d/push
+  path = ~/.gitconfig.d/user

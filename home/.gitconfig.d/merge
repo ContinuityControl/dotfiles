@@ -1,0 +1,2 @@
+[merge]
+  tool = /usr/bin/vimdiff

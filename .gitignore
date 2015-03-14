@@ -1,3 +1,5 @@
 home/.vim/.netrwhist
 .bundle
 *.sw[nop]
+home/.gitconfig.d/user
+home/.gitconfig.d/local
