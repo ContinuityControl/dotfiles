@@ -19,3 +19,30 @@ if defined? Rails && Rails.env
   ActiveRecord::Base.logger = logger if defined? ActiveRecord
   ActiveResource::Base.logger = logger if defined? ActiveResource
 end
+
+# lulz
+
+class Object
+  def fist
+    puts <<-EOF
+
+DID YOU MEAN FIRST?
+
+       ,--.--._
+------" _, \___)
+        / _/____)
+        \//(____)
+------\     (__)
+       `-----"
+
+EOF
+
+    first
+  end
+end
+
+class FlagrantSystemError < StandardError
+  def initialize(message = 'The system is down.  I dunno what you did, moron, but you sure screwed everything up.')
+    super
+  end
+end
