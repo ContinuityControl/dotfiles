@@ -1,0 +1,21 @@
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff --color
+  lg = log -p
+  lp = log --oneline --graph --color
+  dfw = diff --word-diff=color
+[color]
+  status = true
+  diff = true
+  ui = true
+[core]
+  pager = "less -F -X"
+  editor = /usr/bin/vim
+  preloadindex = true
+[merge]
+  tool = /usr/bin/vimdiff
+[push]
+  default = simple

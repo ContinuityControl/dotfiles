@@ -1,4 +1,0 @@
-[core]
-  pager = "less -F -X"
-  editor = /usr/bin/vim
-  preloadindex = true
