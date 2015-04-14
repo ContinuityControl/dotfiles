@@ -148,6 +148,8 @@ abbrev tempalte template
 abbrev teamplate template
 abbrev flase false
 abbrev ptus puts
+abbrev contorl control
+abbrev Contorl Control
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
