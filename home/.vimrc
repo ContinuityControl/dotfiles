@@ -158,3 +158,11 @@ noremap <Right> <NOP>
 
 " enable scss-lint, gem install scss-lint is required
 let g:syntastic_scss_checkers = ['scss_lint']
+
+" syntastic: add statusline flag
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" gitgutter: make the gutter always show, so it doesn't shift
+let g:gitgutter_sign_column_always = 1
