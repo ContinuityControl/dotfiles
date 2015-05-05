@@ -163,3 +163,6 @@ let g:syntastic_scss_checkers = ['scss_lint']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" gitgutter: make the gutter always show, so it doesn't shift
+let g:gitgutter_sign_column_always = 1
