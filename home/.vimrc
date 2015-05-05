@@ -158,3 +158,8 @@ noremap <Right> <NOP>
 
 " enable scss-lint, gem install scss-lint is required
 let g:syntastic_scss_checkers = ['scss_lint']
+
+" syntastic: add statusline flag
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
