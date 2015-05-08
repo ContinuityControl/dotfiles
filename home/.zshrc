@@ -80,6 +80,7 @@ hitch() {
 }
 alias unhitch='hitch -u'
 alias vi='vim'
+alias openwork='vim -p $(git ls-files -m)'
 
 # Uncomment to persist pair info between terminal instances
 echo "-----"
