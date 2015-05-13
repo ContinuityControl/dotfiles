@@ -1,0 +1,38 @@
+set :timer, 25*60
+set :timer_break, 5*60
+set :warning, 5*60
+set :warning_color, "red,bold"
+set :interval, 1
+set :tmux, true
+set :tmux_theme, "#[fg=mycolor,bg=mycolor]#[fg=%s]%s#[fg=mycolor,bg=mycolor]"
+
+option :t, :today, 'open today sheet' do
+  `vim -O ~/.thyme-today.md ~/.thyme-records.md < \`tty\` > \`tty\``
+end
+
+option :p, :break, 'start a break' do
+  run
+end
+
+option :b, :break, 'start a break' do
+  set :timer, 5*60
+  run
+end
+
+option :l, :long_break, 'start a long break' do
+  set :timer, 10*60
+  run
+end
+
+option :s, 'seconds num', 'run with custom seconds' do |num|
+  @timer = num.to_i
+  run
+end
+
+# before do
+#   `mplayer ~/music/flight-of-the-bumble-bee.mp3 &`
+# end
+
+after do |seconds_left|
+  `notify-send -u critical "Thyme's Up!"` if seconds_left == 0
+end
