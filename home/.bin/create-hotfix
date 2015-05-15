@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+require 'shellwords'
+require 'tracker_api'
+require 'yaml'
+require 'active_support'
+
+# trolling
+class GitError < StandardError; end
+
+#check for uncommitted git files because git-flow will blow up
+uncommitted_files = `git status --porcelain`
+
+if !uncommitted_files.empty?
+  raise GitError, "you have uncommitted changes"
+end
+
+story_name = ARGV[0]
+project_id = env['PIVOTAL_PROJECT_ID']
+pivotal_token = env['PIVOTAL_TOKEN']
+
+if story_name.nil? || story_name.empty?
+  raise ArgumentError, "please pass a pivotal story name"
+end
+
+if project_id.nil? || project_id.empty?
+  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable (probably in ~/.zsh/control-rails.zsh)"
+end
+
+if pivotal_token.nil? || pivotal_token.empty?
+  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable (probably in ~/.zsh/control-rails.zsh)"
+end
+
+hitch_config = YAML.load_file("#{ENV['HOME']}/.hitchrc")
+story_owners = if hitch_config[:current_pair].empty?
+                 Array(ENV['USER'])
+               else
+                 hitch_config[:current_pair]
+               end
+
+client = TrackerApi::Client.new(token: pivotal_token)
+# we only have one project so this works well
+control = client.project(project_id)
+
+pivotal_users = control.memberships.map(&:person).select do |person|
+  story_owners.include? person.email.split("@").first
+end
+
+pivotal_ids = pivotal_users.map(&:id)
+
+story = control.create_story(name: story_name, story_type: 'bug', current_state: 'started', owner_ids: pivotal_ids)
+
+puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
+
+slugified_story_name = story_name.parameterize
+
+puts "Creating hotfix branch for #{story_name}"
+escaped_hotfix_name = Shellwords.shellescape("#{story.id}-#{slugified_story_name}")
+`git flow hotfix start #{escaped_hotfix_name}`
