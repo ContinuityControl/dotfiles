@@ -15,8 +15,8 @@ if !uncommitted_files.empty?
 end
 
 story_name = ARGV[0]
-project_id = env['PIVOTAL_PROJECT_ID']
-pivotal_token = env['PIVOTAL_TOKEN']
+project_id = ENV['PIVOTAL_PROJECT_ID']
+pivotal_token = ENV['PIVOTAL_TOKEN']
 
 if story_name.nil? || story_name.empty?
   raise ArgumentError, "please pass a pivotal story name"
