@@ -29,6 +29,11 @@ option :s, 'seconds num', 'run with custom seconds' do |num|
   run
 end
 
+option :m, 'minutes num', 'run with custom minutes' do |num|
+  @timer = num.to_i * 60
+  run
+end
+
 # before do
 #   `mplayer ~/music/flight-of-the-bumble-bee.mp3 &`
 # end
