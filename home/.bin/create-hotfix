@@ -23,11 +23,11 @@ if story_name.nil? || story_name.empty?
 end
 
 if project_id.nil? || project_id.empty?
-  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable (probably in ~/.zsh/control-rails.zsh)"
+  raise ArgumentError, "You need to populate the PIVOTAL_PROJECT_ID environment variable"
 end
 
 if pivotal_token.nil? || pivotal_token.empty?
-  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable (probably in ~/.zsh/control-rails.zsh)"
+  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable"
 end
 
 hitch_config = YAML.load_file("#{ENV['HOME']}/.hitchrc")
