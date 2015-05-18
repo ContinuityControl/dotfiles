@@ -51,7 +51,13 @@ def branch_up_to_date?(repo, branch_name)
   repo.revparse(branch_name) == repo.revparse("origin/#{branch_name}")
 end
 
-project_repository = Git.open(ENV['GIT_REPOSITORY_DIR'])
+repository_dir = ENV['GIT_REPOSITORY_DIR']
+
+if repository_dir.nil? || repository_dir.empty?
+  raise ArgumentError, "You need to populate the GIT_REPOSITORY_DIR environment variable"
+end
+
+project_repository = Git.open(repository_dir)
 
 puts "Checking for commited files"
 if !project_repository.status.added.empty?
