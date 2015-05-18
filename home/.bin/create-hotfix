@@ -51,9 +51,13 @@ def branch_up_to_date?(repo, branch_name)
   repo.revparse(branch_name) == repo.revparse("origin/#{branch_name}")
 end
 
+def env_variable_undefined?(variable)
+  variable.nil? || variable.empty?
+end
+
 repository_dir = ENV['GIT_REPOSITORY_DIR']
 
-if repository_dir.nil? || repository_dir.empty?
+if env_variable_undefined?(repository_dir)
   raise ArgumentError, "You need to populate the GIT_REPOSITORY_DIR environment variable"
 end
 
@@ -73,15 +77,15 @@ story_name = ARGV[0]
 project_id = ENV['PIVOTAL_PROJECT_ID']
 pivotal_token = ENV['PIVOTAL_TOKEN']
 
-if story_name.nil? || story_name.empty?
+if env_variable_undefined?(story_name)
   raise ArgumentError, "please pass a pivotal story name"
 end
 
-if project_id.nil? || project_id.empty?
+if env_variable_undefined?(project_id)
   raise ArgumentError, "You need to populate the PIVOTAL_PROJECT_ID environment variable"
 end
 
-if pivotal_token.nil? || pivotal_token.empty?
+if env_variable_undefined?(pivotal_token)
   raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable"
 end
 
