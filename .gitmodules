@@ -100,3 +100,12 @@
 [submodule "home/.vim/bundle/vim-ruby-refactoring"]
 	path = home/.vim/bundle/vim-ruby-refactoring
 	url = git@github.com:ecomba/vim-ruby-refactoring.git
+[submodule "home/.vim/bundle/vim-gitgutter"]
+	path = home/.vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "home/.vim/bundle/nerdcommenter"]
+	path = home/.vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "home/.vim/bundle/vim-abolish"]
+	path = home/.vim/bundle/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
