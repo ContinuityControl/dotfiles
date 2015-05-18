@@ -1,0 +1,89 @@
+#!/usr/bin/env ruby
+require 'shellwords'
+require 'tracker_api'
+require 'yaml'
+require 'active_support'
+
+### What it does
+# We created a script that will create a bug pivotal story and start a hotfix branch for you. All you need to do is pass a story name.
+
+# Setting it up
+#   If you want to use it, you have to add your Pivotal API Key as an
+#   environment variable. On my account, I put it in ~/.zsh/control-rails.zsh.
+#   (but all files in ~/.zsh our loaded so put it any file in that directory)
+#
+#   This script can also detect if you are "hitched" with someone using the
+#   hitch gem (it reads ~/.hitchrc). If you don't hitch the Pivotal card will
+#   be assigned to $USER (note your Pivotal user needs to match your unix user
+#   in this case)
+
+# i.e.
+#    export PIVOTAL_TOKEN="TOKEN HERE"
+#    export PIVOTAL_PROJECT_ID="some_number_here"
+#
+#    You can find your token at the bottom of the User Profile page on Pivotal,
+#    which you can get to by clicking your name in the top right corner.
+#
+# How you'd use it
+#     i.e. script/create-hotfix 'Do The Needful'
+#
+# What it does
+#
+# It will detect who you are hitched with and add both as story owners. It won't
+# run if you have unstaged git changes. It will then create the branch name using
+# the slugify pivotal card bookmarklet logic.
+#
+####
+
+# trolling
+class GitError < StandardError; end
+
+#check for uncommitted git files because git-flow will blow up
+uncommitted_files = `git status --porcelain`
+
+if !uncommitted_files.empty?
+  raise GitError, "you have uncommitted changes"
+end
+
+story_name = ARGV[0]
+project_id = ENV['PIVOTAL_PROJECT_ID']
+pivotal_token = ENV['PIVOTAL_TOKEN']
+
+if story_name.nil? || story_name.empty?
+  raise ArgumentError, "please pass a pivotal story name"
+end
+
+if project_id.nil? || project_id.empty?
+  raise ArgumentError, "You need to populate the PIVOTAL_PROJECT_ID environment variable"
+end
+
+if pivotal_token.nil? || pivotal_token.empty?
+  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable"
+end
+
+hitch_config = YAML.load_file("#{ENV['HOME']}/.hitchrc")
+story_owners = if hitch_config[:current_pair].empty?
+                 Array(ENV['USER'])
+               else
+                 hitch_config[:current_pair]
+               end
+
+client = TrackerApi::Client.new(token: pivotal_token)
+# we only have one project so this works well
+project = client.project(project_id)
+
+pivotal_users = project.memberships.map(&:person).select do |person|
+  story_owners.include? person.email.split("@").first
+end
+
+pivotal_ids = pivotal_users.map(&:id)
+
+story = project.create_story(name: story_name, story_type: 'bug', current_state: 'started', owner_ids: pivotal_ids)
+
+puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
+
+slugified_story_name = story_name.parameterize
+
+puts "Creating hotfix branch for #{story_name}"
+escaped_hotfix_name = Shellwords.shellescape("#{story.id}-#{slugified_story_name}")
+`git flow hotfix start #{escaped_hotfix_name}`
