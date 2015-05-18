@@ -39,11 +39,28 @@ require 'git'
 # trolling
 class GitError < StandardError; end
 
+def master_up_to_date?(repo)
+  branch_up_to_date?(repo, 'master')
+end
+
+def develop_up_to_date?(repo)
+  branch_up_to_date?(repo, 'develop')
+end
+
+def branch_up_to_date?(repo, branch_name)
+  repo.revparse(branch_name) == repo.revparse("origin/#{branch_name}")
+end
+
 project_repository = Git.open(ENV['GIT_REPOSITORY_DIR'])
 
 puts "Checking for commited files"
 if !project_repository.status.added.empty?
   raise GitError, "Please commit or stash all added files."
+end
+
+puts "Checking if master and develop are up to date"
+if !master_up_to_date?(project_repository) || !develop_up_to_date?(project_repository)
+  raise GitError, "Please pull --rebase master and develop"
 end
 
 story_name = ARGV[0]
