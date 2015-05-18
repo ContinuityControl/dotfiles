@@ -5,14 +5,19 @@ require 'yaml'
 require 'active_support'
 require 'git'
 
-### What it does
-# We created a script that will create a bug pivotal story and start a hotfix branch for you. All you need to do is pass a story name.
+# What it does
+# This script will create a bug pivotal story and start a hotfix branch for
+# you. All you need to do is pass a story name. It will then create the branch
+# name using a slugified version of the name you passed it.
+
+# It will detect who you are hitched with and add both as story owners. It
+# won't run if you have added but uncommitted git changes. It also won't run if
+# local master and develop are not up to date with origin.
 
 # Setting it up
-#   If you want to use it, you have to add your Pivotal API Key as an
-#   environment variable. On my account, I put it in ~/.zsh/control-rails.zsh.
-#   (but all files in ~/.zsh our loaded so put it any file in that directory)
-#
+#   If you want to use it, you have to add your Pivotal API Key and Pivotal
+#   Project ID as environment variables.
+
 #   This script can also detect if you are "hitched" with someone using the
 #   hitch gem (it reads ~/.hitchrc). If you don't hitch the Pivotal card will
 #   be assigned to $USER (note your Pivotal user needs to match your unix user
@@ -21,20 +26,12 @@ require 'git'
 # i.e.
 #    export PIVOTAL_TOKEN="TOKEN HERE"
 #    export PIVOTAL_PROJECT_ID="some_number_here"
-#
+
 #    You can find your token at the bottom of the User Profile page on Pivotal,
 #    which you can get to by clicking your name in the top right corner.
-#
+
 # How you'd use it
 #     i.e. create-hotfix 'Do The Needful'
-#
-# What it does
-#
-# It will detect who you are hitched with and add both as story owners. It won't
-# run if you have unstaged git changes. It will then create the branch name using
-# the slugify pivotal card bookmarklet logic.
-#
-####
 
 # trolling
 class GitError < StandardError; end
