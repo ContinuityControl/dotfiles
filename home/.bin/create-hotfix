@@ -56,9 +56,24 @@ def env_variable_undefined?(variable)
 end
 
 repository_dir = ENV['GIT_REPOSITORY_DIR']
+story_name = ARGV[0]
+project_id = ENV['PIVOTAL_PROJECT_ID']
+pivotal_token = ENV['PIVOTAL_TOKEN']
 
 if env_variable_undefined?(repository_dir)
   raise ArgumentError, "You need to populate the GIT_REPOSITORY_DIR environment variable"
+end
+
+if env_variable_undefined?(story_name)
+  raise ArgumentError, "please pass a pivotal story name"
+end
+
+if env_variable_undefined?(project_id)
+  raise ArgumentError, "You need to populate the PIVOTAL_PROJECT_ID environment variable"
+end
+
+if env_variable_undefined?(pivotal_token)
+  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable"
 end
 
 project_repository = Git.open(repository_dir)
@@ -71,22 +86,6 @@ end
 puts "Checking if master and develop are up to date"
 if !master_up_to_date?(project_repository) || !develop_up_to_date?(project_repository)
   raise GitError, "Please pull --rebase master and develop"
-end
-
-story_name = ARGV[0]
-project_id = ENV['PIVOTAL_PROJECT_ID']
-pivotal_token = ENV['PIVOTAL_TOKEN']
-
-if env_variable_undefined?(story_name)
-  raise ArgumentError, "please pass a pivotal story name"
-end
-
-if env_variable_undefined?(project_id)
-  raise ArgumentError, "You need to populate the PIVOTAL_PROJECT_ID environment variable"
-end
-
-if env_variable_undefined?(pivotal_token)
-  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable"
 end
 
 hitch_config = YAML.load_file("#{ENV['HOME']}/.hitchrc")
