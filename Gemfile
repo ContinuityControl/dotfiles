@@ -4,6 +4,7 @@ gem 'homesick'
 gem 'hitch'
 gem 'scss-lint'
 gem 'thyme'
+gem 'git'
 
 # stuff for pivotal
 gem 'activesupport'
