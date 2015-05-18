@@ -3,6 +3,7 @@ require 'shellwords'
 require 'tracker_api'
 require 'yaml'
 require 'active_support'
+require 'git'
 
 ### What it does
 # We created a script that will create a bug pivotal story and start a hotfix branch for you. All you need to do is pass a story name.
@@ -38,10 +39,10 @@ require 'active_support'
 # trolling
 class GitError < StandardError; end
 
-#check for uncommitted git files because git-flow will blow up
-uncommitted_files = `git status --porcelain`
+project_repository = Git.open(ENV['GIT_REPOSITORY_DIR'])
 
-if !uncommitted_files.empty?
+puts "Checking for commited files"
+if !project_repository.status.added.empty?
   raise GitError, "you have uncommitted changes"
 end
 
