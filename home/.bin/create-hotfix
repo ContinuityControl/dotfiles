@@ -55,14 +55,10 @@ def env_variable_undefined?(variable)
   variable.nil? || variable.empty?
 end
 
-repository_dir = ENV['GIT_REPOSITORY_DIR']
+repository_dir = Dir.pwd
 story_name = ARGV[0]
 project_id = ENV['PIVOTAL_PROJECT_ID']
 pivotal_token = ENV['PIVOTAL_TOKEN']
-
-if env_variable_undefined?(repository_dir)
-  raise ArgumentError, "You need to populate the GIT_REPOSITORY_DIR environment variable"
-end
 
 if env_variable_undefined?(story_name)
   raise ArgumentError, "please pass a pivotal story name"
