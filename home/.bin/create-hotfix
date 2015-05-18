@@ -25,7 +25,7 @@ require 'active_support'
 #    which you can get to by clicking your name in the top right corner.
 #
 # How you'd use it
-#     i.e. script/create-hotfix 'Do The Needful'
+#     i.e. create-hotfix 'Do The Needful'
 #
 # What it does
 #
