@@ -43,7 +43,7 @@ project_repository = Git.open(ENV['GIT_REPOSITORY_DIR'])
 
 puts "Checking for commited files"
 if !project_repository.status.added.empty?
-  raise GitError, "you have uncommitted changes"
+  raise GitError, "Please commit or stash all added files."
 end
 
 story_name = ARGV[0]
