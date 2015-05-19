@@ -52,7 +52,24 @@ def env_variable_undefined?(variable)
   variable.nil? || variable.empty?
 end
 
-repository_dir = Dir.pwd
+def no_git_repo_can_be_found
+  !system 'git status'
+end
+
+def find_git_repo(initial_dir)
+  if no_git_repo_can_be_found
+    raise GitError
+  end
+
+  if Dir.exist?('.git')
+    Git.open(initial_dir)
+  else
+    Dir.chdir('..')
+    find_git_repo(Dir.pwd)
+  end
+end
+
+initial_dir = Dir.pwd
 story_name = ARGV[0]
 project_id = ENV['PIVOTAL_PROJECT_ID']
 pivotal_token = ENV['PIVOTAL_TOKEN']
@@ -69,7 +86,7 @@ if env_variable_undefined?(pivotal_token)
   raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable"
 end
 
-project_repository = Git.open(repository_dir)
+project_repository = find_git_repo(initial_dir)
 
 puts "Checking for commited files"
 if !project_repository.status.added.empty?
