@@ -3,7 +3,7 @@
 # Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
 
 hitch() {
-  command hitch "$@"
+  (rvm system; command hitch "$@")
   if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
 }
 alias unhitch='hitch -u'
