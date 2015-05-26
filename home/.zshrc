@@ -90,7 +90,7 @@ echo "-----"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Make personal scripts available
-PATH=$PATH:$HOME/.homesick/repos/dotfiles/home/.bin # Make personal scripts available
+PATH=$PATH:$HOME/.bin # Make dotfiles scripts available
 
 # tell nokogiri to use sysem libraries instead of compiling packaged libs
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
