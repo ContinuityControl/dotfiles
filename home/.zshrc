@@ -23,6 +23,7 @@ wemuxj() {
 
 fliptable() { echo "（╯°□°）╯ ┻━┻"; } # Flip a table. Example usage: fsck -y /dev/sdb1 || fliptable
 alias tableflip='fliptable'
+alias :fliptable:='fliptable'
 trollface() {
 	echo "
 	░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄░░░░░░░
@@ -42,6 +43,7 @@ trollface() {
 	░░░░░░░░░░░░░░▀▄▄▄▄▄░░░░░░░░█░░
 	"
 }
+alias :troll:='trollface'
 
 dayum() {
   echo "
