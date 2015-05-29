@@ -103,6 +103,12 @@ if [ -f "$HOME/.my_pairing_port" ]; then
   alias rsp="rails server --port ${my_pairing_port} -b 0.0.0.0 puma"
 fi
 
+if [ -f "$HOME/.my_live_reload_port" ]; then
+  # Put your pairing port in ~/.my_pairing_port (single line with just your port number)
+  export LIVE_RELOAD_PORT=$(cat $HOME/.my_live_reload_port)
+  alias livereload-forwarding="ssh -L 35729:127.0.0.1:$LIVE_RELOAD_PORT pairing-02"
+fi
+
 allied_rsp() {
   BRANDING_HOST=alliedinfopoint.continuity.net rsp
 }
