@@ -44,6 +44,6 @@ end
 
 after do |seconds_left|
   if @tmux
-    `tmux set-option -g status-bg red`
+    `tmux set-option -g status-bg magenta`
   end
 end
