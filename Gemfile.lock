@@ -40,7 +40,7 @@ GEM
     rainbow (2.0.0)
     ruby-progressbar (1.7.5)
     sass (3.4.14)
-    scss-lint (0.38.0)
+    scss_lint (0.39.0)
       rainbow (~> 2.0)
       sass (~> 3.4.1)
     thor (0.19.1)
@@ -72,7 +72,7 @@ DEPENDENCIES
   git
   hitch
   homesick
-  scss-lint
+  scss_lint
   thyme
   tracker_api (= 0.2.9)
 
