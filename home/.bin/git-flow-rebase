@@ -1,12 +1,15 @@
 string=`git symbolic-ref HEAD`;
 
+echo "Pulling develop";
+git co develop && git pull && git co -
+
 if [[ "$string" == "refs/heads/feature/"* ]]
 then
   echo "Rebasing this feature on develop";
-  git co develop && git pull && git co - && git rebase develop
+  git rebase develop
 elif [[ "$string" == "refs/heads/hotfix/"* ]]
 then
-  echo "Rebasing this hotfix on master";
+  echo "Pulling and Rebasing this hotfix on master";
   git co master && git pull && git co - && git rebase master
 else
   echo "Not rebasing, this is neither a hotfix nor a feature.";
