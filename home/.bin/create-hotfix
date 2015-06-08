@@ -115,7 +115,7 @@ end
 
 pivotal_ids = pivotal_users.map(&:id)
 
-story = project.create_story(name: story_name, story_type: 'bug', current_state: 'started', owner_ids: pivotal_ids)
+story = project.create_story(name: story_name.titleize, story_type: 'bug', current_state: 'started', owner_ids: pivotal_ids)
 
 puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
 
