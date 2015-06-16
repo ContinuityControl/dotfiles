@@ -34,10 +34,16 @@ option :m, 'minutes num', 'run with custom minutes' do |num|
   run
 end
 
-# before do
-#   `mplayer ~/music/flight-of-the-bumble-bee.mp3 &`
-# end
+option :r, :reset, 'reset status bar' do
+  `tmux set-option -g status-bg black`
+end
+
+before do
+  `tmux set-option -g status-bg black`
+end
 
 after do |seconds_left|
-  `notify-send -u critical "Thyme's Up!"` if seconds_left == 0
+  if @tmux
+    `tmux set-option -g status-bg magenta`
+  end
 end
