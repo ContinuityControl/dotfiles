@@ -7,7 +7,7 @@
   lg = log -p
   lp = log --oneline --graph --color
   dfw = diff --word-diff=color
-  gentle-push = push --force-with-lease
+  nudge = push --force-with-lease
 [color]
   status = true
   diff = true
