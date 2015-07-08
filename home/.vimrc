@@ -173,3 +173,5 @@ let g:gitgutter_sign_column_always = 1
 
 " Re-indent the whole file and go back to where you were
 map <leader>= gg=G''
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
