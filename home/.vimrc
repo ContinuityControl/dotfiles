@@ -159,6 +159,10 @@ noremap <Right> <NOP>
 " enable scss-lint, gem install scss-lint is required
 let g:syntastic_scss_checkers = ['scss_lint']
 
+" jscs requires a config file or it blows up
+" if there is a config file include it, otherwise don't
+let g:syntastic_javascript_checkers = findfile('.jscsrc', '.;') != '' ? ['jshint', 'jscs'] : ['jshint']
+
 " syntastic: add statusline flag
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
