@@ -1,0 +1,8 @@
+neww -n rsp
+neww -n console 'rails c'
+neww -n vim&guard vim
+splitw -h -p30 guard
+neww -n git
+neww
+selectw -t 2
+selectw -t 0
