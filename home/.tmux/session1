@@ -14,8 +14,8 @@ neww -n git
 # tab 4 is for other things
 neww
 
-# make window 2 the alternate one
-# and window 0 left pane the one we end up on at the end
+# make window 2's left pane the alternate one
+# and window 0 the one we end up on at the end
 selectw -t 2
 selectp -t 0
 selectw -t 0
