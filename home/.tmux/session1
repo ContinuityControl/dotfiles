@@ -1,5 +1,5 @@
 # window 0 is for rsp
-# neww -n rsp
+rename-window server
 
 # window 1 is for rails console
 neww -n console 'rails c'
