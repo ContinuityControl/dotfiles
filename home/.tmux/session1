@@ -1,8 +1,19 @@
-neww -n rsp
+# tab 0 is for rsp
+# neww -n rsp
+
+# tab 1 is for rails console
 neww -n console 'rails c'
+
+# tab 2 is a split, vim is 70% on left, guard is 30% on right
 neww -n vim&guard vim
 splitw -h -p30 guard
+
+# tab 3 is for git
 neww -n git
+
+# tab 4 is for other things
 neww
+
+# make pane 2 the alternate one, and pane 0 the one we end up on at the end
 selectw -t 2
 selectw -t 0
