@@ -61,6 +61,10 @@ def branch_up_to_date?(repo, branch_name)
   repo.revparse(branch_name) == repo.revparse("origin/#{branch_name}")
 end
 
+def has_existing_hotfix_branch?(repo)
+  (repo.branches.local.map(&:name).find_index { |e| e.match(/^hotfix\/.*/) }) == 1
+end
+
 def env_variable_undefined?(variable)
   variable.nil? || variable.empty?
 end
@@ -109,6 +113,11 @@ end
 puts "Checking if master and develop are up to date"
 if !master_up_to_date?(project_repository) || !develop_up_to_date?(project_repository)
   raise GitError, "Please pull --rebase master and develop"
+end
+
+puts "Checking for existing hotfix branch"
+if !has_existing_hotfix_branch?(project_repository)
+  raise GitError, "You already have an existing hotfix branch"
 end
 
 hitch_config = YAML.load_file("#{ENV['HOME']}/.hitchrc")
