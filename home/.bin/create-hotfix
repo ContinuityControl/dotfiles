@@ -5,34 +5,47 @@ require 'yaml'
 require 'active_support'
 require 'git'
 
-# What it does
-# This script will create a bug pivotal story and start a hotfix branch for
-# you. All you need to do is pass a story name. It will then create the branch
-# name using a slugified version of the name you passed it.
+help_text = <<-eoht
+##### create-hotfix #####
 
-# It will detect who you are hitched with and add both as story owners. It
-# won't run if you have added but uncommitted git changes. It also won't run if
-# local master and develop are not up to date with origin.
+# What it does
+This script will create a bug pivotal story and start a hotfix branch for
+you. All you need to do is pass a story name. It will then create the branch
+name using a slugified version of the name you passed it.
+
+It will detect who you are hitched with and add both as story owners.
+
+It won't run under the following conditions:
+* You have added but uncommitted git changes.
+* If local master and develop are not up to date with origin.
+* If you already have a local hotfix branch (because git-flow won't run)
 
 # Setting it up
-#   If you want to use it, you have to add your Pivotal API Key and Pivotal
-#   Project ID as environment variables.
+If you want to use it, you have to add your Pivotal API Key and Pivotal
+Project ID as environment variables.
 
-#   This script can also detect if you are "hitched" with someone using the
-#   hitch gem (it reads ~/.hitchrc). If you don't hitch the Pivotal card will
-#   be assigned to $USER (note your Pivotal user needs to match your unix user
-#   in this case)
+You can find the your token at the bottom of the User Profile page on Pivotal,
+which you can get to by clicking your name in the top right corner.
 
-# i.e.
-#    export PIVOTAL_TOKEN="TOKEN HERE"
-#    export PIVOTAL_PROJECT_ID="some_number_here"
+    export PIVOTAL_TOKEN="TOKEN HERE"
+    export PIVOTAL_PROJECT_ID="some_number_here"
 
-#    You can find your token at the bottom of the User Profile page on Pivotal,
-#    which you can get to by clicking your name in the top right corner.
+# Getting Hitched
+This script can also detect if you are "hitched" with someone using the
+hitch gem (it reads ~/.hitchrc). If you don't hitch the Pivotal card will
+be assigned to $USER (note your Pivotal user needs to match your unix user
+in this case)
 
+# Needful environment variables
 # How you'd use it
-#     i.e. create-hotfix 'Do The Needful'
+create-hotfix 'Do The Needful'
 
+eoht
+
+if ARGV[0].eql?("--help")
+  puts help_text
+  exit
+end
 # trolling
 class GitError < StandardError; end
 
