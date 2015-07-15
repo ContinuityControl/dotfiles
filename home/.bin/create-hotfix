@@ -48,6 +48,7 @@ if ARGV[0].eql?("--help")
 end
 # trolling
 class GitError < StandardError; end
+class GitFlowError < StandardError; end
 
 def master_up_to_date?(repo)
   branch_up_to_date?(repo, 'master')
@@ -62,7 +63,7 @@ def branch_up_to_date?(repo, branch_name)
 end
 
 def has_existing_hotfix_branch?(repo)
-  (repo.branches.local.map(&:name).find_index { |e| e.match(/^hotfix\/.*/) }) == 1
+  !repo.branches.local.map(&:name).select { |name| name =~ /^hotfix.*/ }.empty?
 end
 
 def env_variable_undefined?(variable)
@@ -116,8 +117,8 @@ if !master_up_to_date?(project_repository) || !develop_up_to_date?(project_repos
 end
 
 puts "Checking for existing hotfix branch"
-if !has_existing_hotfix_branch?(project_repository)
-  raise GitError, "You already have an existing hotfix branch"
+if has_existing_hotfix_branch?(project_repository)
+  raise GitFlowError, "You already have an existing hotfix branch"
 end
 
 hitch_config = YAML.load_file("#{ENV['HOME']}/.hitchrc")
