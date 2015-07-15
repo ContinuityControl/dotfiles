@@ -1,0 +1,21 @@
+# window 0 is for rsp
+rename-window server
+
+# window 1 is for rails console
+neww -n console 'rails c'
+
+# window 2 is a split, vim is 70% on left, guard is 30% on right
+neww -n vim&guard vim
+splitw -h -p30 guard
+
+# window 3 is for git
+neww -n git
+
+# window 4 is for other things
+neww
+
+# make window 2's left pane the alternate one
+# and window 0 the one we end up on at the end
+selectw -t 2
+selectp -t 0
+selectw -t 0
