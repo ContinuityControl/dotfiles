@@ -6,6 +6,10 @@ Uses the `homesick` format.
 
 ## Installation
 
+### Warning, Warning Will Robinson!
+
+Using the stock OSX version of git will likely cause problems. You probably want to `brew install git` and ensure that /usr/local/bin precedes /usr/bin in your $PATH. You may also want to `brew install vim`.
+
 ### First Setup
 
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
