@@ -16,10 +16,6 @@
   pager = "less -F -X"
   editor = /usr/bin/vim
   preloadindex = true
-[gitflow.hotfix "finish"]
-  message = "hotfix"
-[gitflow.release "finish"]
-  message = "release"
 [merge]
   tool = /usr/bin/vimdiff
 [push]
