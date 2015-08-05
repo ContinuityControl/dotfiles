@@ -109,6 +109,11 @@ if [ -f "$HOME/.my_live_reload_port" ]; then
   export LIVE_RELOAD_PORT=$(cat $HOME/.my_live_reload_port)
 fi
 
+if [ -f "$HOME/.my_jasmine_server_port" ]; then
+  # Put your jasmine port in ~/.my_jasmine_server_port (single line with just your port number)
+  export JASMINE_SERVER_PORT=$(cat $HOME/.my_jasmine_server_port)
+fi
+
 allied_rsp() {
   BRANDING_HOST=alliedinfopoint.continuity.net rsp
 }
