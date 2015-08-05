@@ -170,6 +170,9 @@ set statusline+=%*
 
 " gitgutter: make the gutter always show, so it doesn't shift
 let g:gitgutter_sign_column_always = 1
+" aliases for gitgutter
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
 
 " Re-indent the whole file and go back to where you were
 map <leader>= gg=G''
