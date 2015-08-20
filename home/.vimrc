@@ -87,6 +87,7 @@ colorscheme solarized
 let g:ShowTrailingWhitespace = 1
 highlight ShowTrailingWhitespace ctermbg=Red guibg=Red
 let g:DeleteTrailingWhitespace = 1
+autocmd BufRead,BufNewFile db/structure.sql let g:DeleteTrailingWhitespace = 0
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
 " Enable per-directory .vimrc files, but don't allow insecure commands.
