@@ -46,9 +46,6 @@ if ARGV[0].eql?("--help")
   puts help_text
   exit
 end
-# trolling
-class GitError < StandardError; end
-class GitFlowError < StandardError; end
 
 def env_variable_undefined?(variable)
   variable.nil? || variable.empty?

@@ -1,5 +1,8 @@
 require 'git'
 
+class GitError < StandardError; end
+class GitFlowError < StandardError; end
+
 class GitRepository
   def initialize(path_to_repo)
     @repo = find_git_repo(path_to_repo)
