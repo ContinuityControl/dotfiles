@@ -51,7 +51,6 @@ def env_variable_undefined?(variable)
   variable.nil? || variable.empty?
 end
 
-
 initial_dir = Dir.pwd
 story_name = ARGV[0]
 project_id = ENV['PIVOTAL_PROJECT_ID']
