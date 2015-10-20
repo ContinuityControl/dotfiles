@@ -9,8 +9,12 @@ class GitRepository
     !@repo.status.added.empty?
   end
 
-  def branch_up_to_date?(branch_name)
-    @repo.revparse(branch_name) == @repo.revparse("origin/#{branch_name}")
+  def master_up_to_date?
+    branch_up_to_date?('master')
+  end
+
+  def develop_up_to_date?
+    branch_up_to_date?('develop')
   end
 
   def has_existing_branch_name?(branch_name)
@@ -18,6 +22,10 @@ class GitRepository
   end
 
   private
+
+  def branch_up_to_date?(branch_name)
+    @repo.revparse(branch_name) == @repo.revparse("origin/#{branch_name}")
+  end
 
   def no_git_repo_can_be_found
     !system 'git status'

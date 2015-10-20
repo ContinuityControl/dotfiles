@@ -79,7 +79,7 @@ if project_repo.has_added_files?
 end
 
 puts "Checking if master and develop are up to date"
-if !project_repo.branch_up_to_date?('master') || !project_repo.branch_up_to_date?('develop')
+if !project_repo.master_up_to_date? || !project_repo.develop_up_to_date?
   raise GitError, "Please pull --rebase master and develop"
 end
 
