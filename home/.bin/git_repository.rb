@@ -5,6 +5,25 @@ class GitRepository
     @repo = find_git_repo(path_to_repo)
   end
 
+  def validate_for_hotfix
+    puts "Checking for commited files"
+    if has_added_files?
+      raise GitError, "Please commit or stash all added files."
+    end
+
+    puts "Checking if master and develop are up to date"
+    if !master_up_to_date? || !develop_up_to_date?
+      raise GitError, "Please pull --rebase master and develop"
+    end
+
+    puts "Checking for existing hotfix branch"
+    if has_existing_branch_name?("hotfix")
+      raise GitFlowError, "You already have an existing hotfix branch"
+    end
+  end
+
+  private
+
   def has_added_files?
     !@repo.status.added.empty?
   end
@@ -20,8 +39,6 @@ class GitRepository
   def has_existing_branch_name?(branch_name)
     !@repo.branches.local.map(&:name).select { |name| name =~ /^#{branch_name}.*/ }.empty?
   end
-
-  private
 
   def branch_up_to_date?(branch_name)
     @repo.revparse(branch_name) == @repo.revparse("origin/#{branch_name}")

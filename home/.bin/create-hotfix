@@ -73,20 +73,7 @@ if env_variable_undefined?(pivotal_token)
 end
 
 project_repo = GitRepository.new(initial_dir)
-puts "Checking for commited files"
-if project_repo.has_added_files?
-  raise GitError, "Please commit or stash all added files."
-end
-
-puts "Checking if master and develop are up to date"
-if !project_repo.master_up_to_date? || !project_repo.develop_up_to_date?
-  raise GitError, "Please pull --rebase master and develop"
-end
-
-puts "Checking for existing hotfix branch"
-if project_repo.has_existing_branch_name?("hotfix")
-  raise GitFlowError, "You already have an existing hotfix branch"
-end
+project_repo.validate_for_hotfix
 
 hitch_config = YAML.load_file("#{ENV['HOME']}/.hitchrc")
 story_owners = if hitch_config[:current_pair].empty?
