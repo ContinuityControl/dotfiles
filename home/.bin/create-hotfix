@@ -1,9 +1,5 @@
 #!/usr/bin/env ruby
-require 'shellwords'
-require 'tracker_api'
-require 'yaml'
-require 'active_support'
-require 'git'
+require_relative 'hotfix'
 
 help_text = <<-eoht
 ##### create-hotfix #####
@@ -46,104 +42,14 @@ if ARGV[0].eql?("--help")
   puts help_text
   exit
 end
-# trolling
-class GitError < StandardError; end
-class GitFlowError < StandardError; end
 
-def master_up_to_date?(repo)
-  branch_up_to_date?(repo, 'master')
-end
-
-def develop_up_to_date?(repo)
-  branch_up_to_date?(repo, 'develop')
-end
-
-def branch_up_to_date?(repo, branch_name)
-  repo.revparse(branch_name) == repo.revparse("origin/#{branch_name}")
-end
-
-def has_existing_hotfix_branch?(repo)
-  !repo.branches.local.map(&:name).select { |name| name =~ /^hotfix.*/ }.empty?
-end
-
-def env_variable_undefined?(variable)
-  variable.nil? || variable.empty?
-end
-
-def no_git_repo_can_be_found
-  !system 'git status'
-end
-
-def find_git_repo(initial_dir)
-  if no_git_repo_can_be_found
-    raise GitError
-  end
-
-  if Dir.exist?('.git')
-    Git.open(initial_dir)
-  else
-    Dir.chdir('..')
-    find_git_repo(Dir.pwd)
-  end
-end
-
-initial_dir = Dir.pwd
 story_name = ARGV[0]
 project_id = ENV['PIVOTAL_PROJECT_ID']
 pivotal_token = ENV['PIVOTAL_TOKEN']
 
-if env_variable_undefined?(story_name)
-  raise ArgumentError, "please pass a pivotal story name"
-end
-
-if env_variable_undefined?(project_id)
-  raise ArgumentError, "You need to populate the PIVOTAL_PROJECT_ID environment variable"
-end
-
-if env_variable_undefined?(pivotal_token)
-  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable"
-end
-
-project_repository = find_git_repo(initial_dir)
-
-puts "Checking for commited files"
-if !project_repository.status.added.empty?
-  raise GitError, "Please commit or stash all added files."
-end
-
-puts "Checking if master and develop are up to date"
-if !master_up_to_date?(project_repository) || !develop_up_to_date?(project_repository)
-  raise GitError, "Please pull --rebase master and develop"
-end
-
-puts "Checking for existing hotfix branch"
-if has_existing_hotfix_branch?(project_repository)
-  raise GitFlowError, "You already have an existing hotfix branch"
-end
-
-hitch_config = YAML.load_file("#{ENV['HOME']}/.hitchrc")
-story_owners = if hitch_config[:current_pair].empty?
-                 Array(ENV['USER'])
-               else
-                 hitch_config[:current_pair]
-               end
-
-client = TrackerApi::Client.new(token: pivotal_token)
-# we only have one project so this works well
-project = client.project(project_id)
-
-pivotal_users = project.memberships.map(&:person).select do |person|
-  story_owners.include? person.email.split("@").first
-end
-
-pivotal_ids = pivotal_users.map(&:id)
-
-story = project.create_story(name: story_name.titleize, story_type: 'bug', current_state: 'started', owner_ids: pivotal_ids)
-
-puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
-
-slugified_story_name = story_name.parameterize
-
-puts "Creating hotfix branch for #{story_name}"
-escaped_hotfix_name = Shellwords.shellescape("#{story.id}-#{slugified_story_name}")
-`git flow hotfix start #{escaped_hotfix_name}`
+hotfix = Hotfix.new(
+  story_name: story_name,
+  project_id: project_id,
+  pivotal_token: pivotal_token
+)
+hotfix.save!
