@@ -1,9 +1,5 @@
 #!/usr/bin/env ruby
-require 'shellwords'
-require 'yaml'
-require 'active_support'
-require_relative 'git_repository'
-require_relative 'pivotal_project'
+require_relative 'hotfix'
 
 help_text = <<-eoht
 ##### create-hotfix #####
@@ -47,44 +43,13 @@ if ARGV[0].eql?("--help")
   exit
 end
 
-def env_variable_undefined?(variable)
-  variable.nil? || variable.empty?
-end
-
-initial_dir = Dir.pwd
 story_name = ARGV[0]
 project_id = ENV['PIVOTAL_PROJECT_ID']
 pivotal_token = ENV['PIVOTAL_TOKEN']
 
-if env_variable_undefined?(story_name)
-  raise ArgumentError, "please pass a pivotal story name"
-end
-
-if env_variable_undefined?(project_id)
-  raise ArgumentError, "You need to populate the PIVOTAL_PROJECT_ID environment variable"
-end
-
-if env_variable_undefined?(pivotal_token)
-  raise ArgumentError, "You need to populate the PIVOTAL_TOKEN environment variable"
-end
-
-project_repo = GitRepository.new(initial_dir)
-project_repo.validate_for_hotfix
-
-hitch_config = YAML.load_file("#{ENV['HOME']}/.hitchrc")
-story_owners = if hitch_config[:current_pair].empty?
-                 Array(ENV['USER'])
-               else
-                 hitch_config[:current_pair]
-               end
-
-project = PivotalProject.new(pivotal_token, project_id)
-story = project.create_hotfix(name: story_name.titleize, owner_usernames: story_owners)
-
-puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
-
-slugified_story_name = story_name.parameterize
-
-puts "Creating hotfix branch for #{story_name}"
-escaped_hotfix_name = Shellwords.shellescape("#{story.id}-#{slugified_story_name}")
-`git flow hotfix start #{escaped_hotfix_name}`
+hotfix = Hotfix.new(
+  story_name: story_name,
+  project_id: project_id,
+  pivotal_token: pivotal_token
+)
+hotfix.save!
