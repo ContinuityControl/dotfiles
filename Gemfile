@@ -5,6 +5,7 @@ gem 'hitch'
 gem 'scss_lint'
 gem 'thyme'
 gem 'git'
+gem 'sqlint'
 
 # stuff for pivotal
 gem 'activesupport'
