@@ -2,7 +2,7 @@ require_relative 'story'
 
 class Hotfix < Story
   def save!
-    validate_environment_and_arguments
+    validate_environment_and_arguments!
     validate_git_repository
 
     create_hotfix!
