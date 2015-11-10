@@ -21,10 +21,10 @@ class Hotfix < Story
     puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
     puts "Creating hotfix branch for #{story_name}"
 
-    `git flow hotfix start #{create_hotfix_name(story.id)}`
+    `git flow hotfix start #{branch_name(story.id)}`
   end
 
-  def create_hotfix_name(story_id)
+  def branch_name(story_id)
     Shellwords.shellescape("#{story_id}-#{story_name.parameterize}")
   end
 end
