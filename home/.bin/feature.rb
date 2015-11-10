@@ -11,7 +11,7 @@ class Feature < Story
   private
 
   def validate_git_repository!
-    GitRepository.new(Dir.pwd).validate_for_feature
+    GitRepository.new(Dir.pwd).validate_for_feature!
   end
 
   def create_feature!
