@@ -15,7 +15,7 @@ class Story
 
   attr_reader :story_name, :project_id, :pivotal_token
 
-  def validate_environment_and_arguments
+  def validate_environment_and_arguments!
     if env_variable_undefined?(story_name)
       raise ArgumentError, "please pass a pivotal story name"
     end
