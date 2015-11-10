@@ -8,7 +8,7 @@ class GitRepository
     @repo = find_git_repo(path_to_repo)
   end
 
-  def validate_for_hotfix
+  def validate_for_hotfix!
     puts "Checking for commited files"
     if has_added_files?
       raise GitError, "Please commit or stash all added files."
