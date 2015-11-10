@@ -25,7 +25,7 @@ class GitRepository
     end
   end
 
-  def validate_for_feature
+  def validate_for_feature!
     puts "Checking for commited files"
     if has_added_files?
       raise GitError, "Please commit or stash all added files."
