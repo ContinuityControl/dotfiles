@@ -15,6 +15,15 @@ class PivotalProject
                          owner_ids: story_owner_ids)
   end
 
+  def create_feature(options)
+    story_owner_ids = find_users(options[:owner_usernames]).map(&:id)
+    project.create_story(name: options[:name],
+                         story_type: 'feature',
+                         current_state: 'started',
+                         estimate: 0,
+                         owner_ids: story_owner_ids)
+  end
+
   private
 
   attr_reader :project

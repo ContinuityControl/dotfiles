@@ -25,6 +25,18 @@ class GitRepository
     end
   end
 
+  def validate_for_feature
+    puts "Checking for commited files"
+    if has_added_files?
+      raise GitError, "Please commit or stash all added files."
+    end
+
+    puts "Checking if develop is up to date"
+    if !develop_up_to_date?
+      raise GitError, "Please pull --rebase develop"
+    end
+  end
+
   private
 
   def has_added_files?
