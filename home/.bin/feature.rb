@@ -3,14 +3,14 @@ require_relative 'story'
 class Feature < Story
   def save!
     validate_environment_and_arguments!
-    validate_git_repository
+    validate_git_repository!
 
     create_feature!
   end
 
   private
 
-  def validate_git_repository
+  def validate_git_repository!
     GitRepository.new(Dir.pwd).validate_for_feature
   end
 
