@@ -11,7 +11,7 @@ class Hotfix < Story
   private
 
   def validate_git_repository!
-    GitRepository.new(Dir.pwd).validate_for_hotfix
+    GitRepository.new(Dir.pwd).validate_for_hotfix!
   end
 
   def create_hotfix!
