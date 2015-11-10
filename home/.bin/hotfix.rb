@@ -21,8 +21,7 @@ class Hotfix < Story
     puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
     puts "Creating hotfix branch for #{story_name}"
 
-    escaped_hotfix_name = create_hotfix_name(story.id)
-    `git flow hotfix start #{escaped_hotfix_name}`
+    `git flow hotfix start #{create_hotfix_name(story.id)}`
   end
 
   def create_hotfix_name(story_id)
