@@ -23,8 +23,4 @@ class Hotfix < Story
 
     `git flow hotfix start #{branch_name(story.id)}`
   end
-
-  def branch_name(story_id)
-    Shellwords.shellescape("#{story_id}-#{story_name.parameterize}")
-  end
 end
