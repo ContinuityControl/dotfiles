@@ -45,4 +45,8 @@ class Story
       hitch_config[:current_pair]
     end
   end
+
+  def branch_name(story_id)
+    Shellwords.shellescape("#{story_id}-#{story_name.parameterize}")
+  end
 end
