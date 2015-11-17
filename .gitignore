@@ -3,3 +3,4 @@ home/.vim/.netrwhist
 *.sw[nop]
 home/.gitconfig.d/user
 home/.gitconfig.d/local
+home/.tmux/resurrect/
