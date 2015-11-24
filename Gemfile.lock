@@ -78,8 +78,9 @@ DEPENDENCIES
   homesick
   scss_lint
   sqlint
+  thor
   thyme
   tracker_api (= 0.2.9)
 
 BUNDLED WITH
-   1.11.2
+   1.10.6

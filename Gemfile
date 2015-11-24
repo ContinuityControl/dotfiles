@@ -6,6 +6,7 @@ gem 'scss_lint'
 gem 'thyme'
 gem 'git'
 gem 'sqlint'
+gem 'thor'
 
 # stuff for pivotal
 gem 'activesupport'
