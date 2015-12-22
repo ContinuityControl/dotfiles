@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require_relative 'hotfix'
+require_relative '../.bin-services/hotfix'
 
 help_text = <<-eoht
 ##### create-hotfix #####
