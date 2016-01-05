@@ -5,8 +5,9 @@ require_relative 'git_repository'
 require_relative 'pivotal_project'
 
 class Story
-  def initialize(story_name:, project_id:, pivotal_token:)
+  def initialize(story_name:, labels:, project_id:, pivotal_token:)
     @story_name = story_name
+    @labels = Array(labels)
     @project_id = project_id
     @pivotal_token = pivotal_token
   end
@@ -18,6 +19,7 @@ class Story
 
     story = pivotal_project.create_story(type,
                                          name: story_name.titleize,
+                                         labels: labels,
                                          owner_usernames: derive_story_owners)
 
     puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
@@ -28,7 +30,7 @@ class Story
 
   private
 
-  attr_reader :story_name, :project_id, :pivotal_token
+  attr_reader :story_name, :labels, :project_id, :pivotal_token
 
   def validate_environment_and_arguments!
     if env_variable_undefined?(story_name)

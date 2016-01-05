@@ -18,6 +18,7 @@ class PivotalProject
   def create_hotfix(options)
     story_owner_ids = find_users(options[:owner_usernames]).map(&:id)
     project.create_story(name: options[:name],
+                         labels: options[:labels],
                          story_type: 'bug',
                          current_state: 'started',
                          owner_ids: story_owner_ids)
@@ -26,6 +27,7 @@ class PivotalProject
   def create_feature(options)
     story_owner_ids = find_users(options[:owner_usernames]).map(&:id)
     project.create_story(name: options[:name],
+                         labels: options[:labels],
                          story_type: 'feature',
                          current_state: 'started',
                          estimate: 0,
