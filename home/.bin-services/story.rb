@@ -11,6 +11,21 @@ class Story
     @pivotal_token = pivotal_token
   end
 
+  def create_story!(type)
+    if type.nil? || !["feature", "hotfix"].include?(type)
+      raise ArgumentError, "You need to specify that your story is a feature or a hotfix"
+    end
+
+    story = pivotal_project.create_story(type,
+                                         name: story_name.titleize,
+                                         owner_usernames: derive_story_owners)
+
+    puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
+    puts "Creating #{type} branch for #{story_name}"
+
+    `git flow #{type} start #{branch_name(story.id)}`
+  end
+
   private
 
   attr_reader :story_name, :project_id, :pivotal_token

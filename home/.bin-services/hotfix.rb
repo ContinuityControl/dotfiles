@@ -16,12 +16,6 @@ class Hotfix < Story
   end
 
   def create_hotfix!
-    story = pivotal_project.create_hotfix(name: story_name.titleize,
-                                          owner_usernames: derive_story_owners)
-
-    puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
-    puts "Creating hotfix branch for #{story_name}"
-
-    `git flow hotfix start #{branch_name(story.id)}`
+    create_story!("hotfix")
   end
 end

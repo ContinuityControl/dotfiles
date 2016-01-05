@@ -16,12 +16,6 @@ class Feature < Story
   end
 
   def create_feature!
-    story = pivotal_project.create_feature(name: story_name.titleize,
-                                           owner_usernames: derive_story_owners)
-
-    puts "Your pivotal story is https://www.pivotaltracker.com/story/show/#{story.id}"
-    puts "Creating feature branch for #{story_name}"
-
-    `git flow feature start #{branch_name(story.id)}`
+    create_story!("feature")
   end
 end

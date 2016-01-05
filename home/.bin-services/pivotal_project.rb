@@ -7,6 +7,14 @@ class PivotalProject
     @project = client.project(project_id)
   end
 
+  def create_story(type, options)
+    if type == "feature"
+      create_feature(options)
+    elsif type == "hotfix"
+      create_hotfix(options)
+    end
+  end
+
   def create_hotfix(options)
     story_owner_ids = find_users(options[:owner_usernames]).map(&:id)
     project.create_story(name: options[:name],
