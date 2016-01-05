@@ -2,7 +2,7 @@ require 'thor'
 require_relative 'hotfix'
 
 class HotfixCLI < Thor
-  desc "create STORY_NAME", "Create hotfix story and git branch for it"
+  desc "create STORY_NAME [labels]", "Create hotfix story and git branch for it"
   long_desc <<-eoht
     This script will create a bug pivotal story and start a hotfix branch for
     you. All you need to do is pass a story name. It will then create the branch
@@ -30,9 +30,12 @@ class HotfixCLI < Thor
         create-hotfix create 'Do The Needful'
   eoht
 
+  option :labels, type: :array, desc: "The labels you want to apply to your story"
+
   def create(story_name)
     hotfix = Hotfix.new(
       story_name: story_name,
+      labels: options[:labels],
       project_id: project_id,
       pivotal_token: pivotal_token
     )
