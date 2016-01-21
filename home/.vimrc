@@ -47,6 +47,10 @@ if has("autocmd")
   " In Makefiles, use real tabs, not tabs expanded to spaces
   au FileType make set noexpandtab
 
+  " Make sure markdown files use markdown mode
+  au BufNewFile,BufRead *.md setfiletype markdown
+  au BufNewFile,BufRead *.markdown setfiletype markdown
+
   " Enable spell checking for markdown files
   au BufNewFile,BufRead *.md setlocal spell
   au BufNewFile,BufRead *.markdown setlocal spell
