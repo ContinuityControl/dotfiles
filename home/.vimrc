@@ -54,9 +54,6 @@ if has("autocmd")
   " Enable spell checking for git commits
   au FileType gitcommit setlocal spell
 
-  " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json set ft=javascript
-
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
