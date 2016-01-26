@@ -184,3 +184,7 @@ set foldmethod=syntax
 " foldevalstart approximates a 'don't automatically fold everything when a file is
 " opened' setting
 set foldlevelstart=99
+
+" don't hide quoting in json files
+" https://github.com/elzr/vim-json#common-problems
+let g:vim_json_syntax_conceal = 0
