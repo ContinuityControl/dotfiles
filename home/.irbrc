@@ -20,6 +20,11 @@ if defined? Rails && Rails.env
   ActiveResource::Base.logger = logger if defined? ActiveResource
 end
 
+if defined? Rails && Rails.env
+  def clear_sidekiq
+    Sidekiq::RetrySet.new.clear
+  end
+end
 # lulz
 
 class Object
