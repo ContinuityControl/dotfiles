@@ -20,9 +20,12 @@ if defined? Rails && Rails.env
   ActiveResource::Base.logger = logger if defined? ActiveResource
 end
 
-if defined? Rails && Rails.env
+if defined? Sidekiq
   def clear_sidekiq
     Sidekiq::RetrySet.new.clear
+    Sidekiq::DeadSet.new.clear
+    Sidekiq::ScheduledSet.new.clear
+    Sidekiq::Queue.all.each {|q| q.clear}
   end
 end
 # lulz
