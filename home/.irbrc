@@ -61,3 +61,28 @@ module Enumerable
     group_by(&block).map { |criteria, group| [criteria, group.count] }.sort_by(&:last).to_h
   end
 end
+
+# Usage: distributed_to_dos.count_by { |dtd| dtd.assignments.count }.histogram
+# ...and it prints:
+# 1: (11) *************************************
+# 2: ( 9) ******************************
+# 3: (21) ************************************************************************
+# 4: ( 2) ******
+class Hash
+  def histogram(line_len=80, sigil='*')
+    max_key_len = keys.map(&:to_s).map(&:size).max
+    max_value = values.max
+    max_value_label_len = values.map(&:to_s).map(&:size).max
+
+    max_value_bar_len = line_len - max_key_len - max_value_label_len - 5   # 5 for ": " and "(n)"
+
+    keys.each do |key|
+      value = self[key]
+
+      left = key.to_s.ljust(max_key_len)
+      mid = value.to_s.rjust(max_value_label_len)
+      right = sigil * (value.to_f * max_value_bar_len / max_value)
+      puts "#{left}: (#{mid}) #{right}"
+    end
+  end
+end
