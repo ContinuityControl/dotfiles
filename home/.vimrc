@@ -152,6 +152,9 @@ abbrev flase false
 abbrev ptus puts
 abbrev contorl control
 abbrev Contorl Control
+" for old people
+cnoreabbrev W w
+cnoreabbrev Tabe tabe
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
