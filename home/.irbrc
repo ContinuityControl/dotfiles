@@ -86,3 +86,18 @@ class Hash
     end
   end
 end
+
+class Hash
+  def to_csv_file(filename, header_for_key:'key')
+    require 'csv'
+
+    CSV.open(filename, 'wb') do |csv|
+      csv << [header_for_key, 'value']
+      self.each do |key, value|
+        csv << [key, value]
+      end
+    end
+
+    "#{self.size} key-value pairs written to #{filename}"
+  end
+end
