@@ -81,7 +81,7 @@ class Hash
 
       left = key.to_s.ljust(max_key_len)
       mid = value.to_s.rjust(max_value_label_len)
-      right = sigil * (value.to_f * max_value_bar_len / max_value)
+      right = sigil * (value.to_f * max_value_bar_len / max_value).ceil
       puts "#{left}: (#{mid}) #{right}"
     end
   end
