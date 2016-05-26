@@ -108,13 +108,6 @@ alias unhitch='hitch -u'
 alias vi='vim'
 alias openwork='vim -p $(git ls-files -m)'
 
-# Uncomment to persist pair info between terminal instances
-echo "-----"
-echo "You are currently hitched with"
-hitch
-echo "Who should you hitch with today?"
-echo "-----"
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Make personal scripts available
 PATH=$PATH:$HOME/.bin # Make dotfiles scripts available
