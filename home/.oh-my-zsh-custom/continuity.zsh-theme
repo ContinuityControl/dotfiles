@@ -8,7 +8,7 @@ if hash rvm-prompt 2>/dev/null; then
 fi
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 
-PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby} ${git_branch}
+PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby} ${git_branch} \$BUNDLE_GEMFILE
 ╰ %B$%b "
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
