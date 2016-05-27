@@ -5,3 +5,4 @@ home/.gitconfig.d/user
 home/.gitconfig.d/local
 home/.tmux/resurrect/
 home/.tmux/user.conf
+home/.vim/spell
