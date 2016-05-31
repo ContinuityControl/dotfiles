@@ -69,7 +69,10 @@ end
 # 3: (21) ************************************************************************
 # 4: ( 2) ******
 class Hash
-  def histogram(width:80, tickmark:'*')
+  def histogram(opts = {})
+    width = opts[:width] || 80
+    tickmark = opts[:tickmark] || '*'
+
     max_key_len = keys.map(&:to_s).map(&:size).max
     max_value = values.max
     max_value_label_len = values.map(&:to_s).map(&:size).max
@@ -88,7 +91,9 @@ class Hash
 end
 
 class Hash
-  def to_csv_file(filename, header_for_key:'key')
+  def to_csv_file(filename, opts = {})
+    header_for_key = opts[:header_for_key] || 'key'
+
     require 'csv'
 
     CSV.open(filename, 'wb') do |csv|
