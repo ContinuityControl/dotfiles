@@ -1,0 +1,19 @@
+## MAC OS
+.DS_Store
+Thumbs.db
+
+## TEXTMATE
+*.tmproj
+tmtags
+
+## EMACS
+*~
+\#*
+.\#*
+
+## VIM
+*.sw[nop]
+
+## RUBYMINE
+.idea/**/*
+.idea/
