@@ -121,3 +121,6 @@
 [submodule "home/.vim/bundle/vim-coffee-script"]
 	path = home/.vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "home/.vim/bundle/vim-mkdir"]
+	path = home/.vim/bundle/vim-mkdir
+	url = https://github.com/pbrisbin/vim-mkdir.git
