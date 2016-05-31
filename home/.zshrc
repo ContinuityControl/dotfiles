@@ -146,6 +146,11 @@ if [ -d ~/.zsh ]; then
   done
 fi
 
+# Prevent warnings if the user has not set up a tmux user.conf file
+if [ ! -f "$HOME/.tmux/user.conf" ]; then
+  touch $HOME/.tmux/user.conf
+fi
+
 # RVM is a silly thing. This fixes tmux not loading gemset
 # http://stackoverflow.com/a/6097090/3010499
 cd .
