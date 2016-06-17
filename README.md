@@ -8,7 +8,7 @@ Uses the `homesick` format.
 
 ### Warning, Warning Will Robinson!
 
-Using the stock OSX version of git will likely cause problems. You probably want to `brew install git` and ensure that /usr/local/bin precedes /usr/bin in your $PATH. You may also want to `brew install vim`.
+Using the stock OSX version of git will likely cause problems. You probably want to `brew install git` and ensure that /usr/local/bin precedes /usr/bin in your $PATH. You may also want to `brew install vim` (if you don't, you'll run into a bug in `vim` that causes it to crash with the message `Caught deadly ABRT signal`).
 
 ### First Setup
 
