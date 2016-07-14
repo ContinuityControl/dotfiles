@@ -106,7 +106,7 @@ hitch() {
 }
 alias unhitch='hitch -u'
 alias vi='vim'
-alias openwork='vim -p $(git ls-files -m)'
+alias openwork='vim -p $(git ls-files -m) $(git ls-files --others --exclude-standard)'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Make personal scripts available
