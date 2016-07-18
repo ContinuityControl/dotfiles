@@ -16,11 +16,6 @@ setopt interactivecomments
 bindkey '^R' history-incremental-search-backward
 autoload -U zrecompile
 
-wemuxj() {
-  cd "$HOME/workspace/control"
-  wemux join "$1" && wemux
-}
-
 fliptable() { echo "（╯°□°）╯ ┻━┻"; } # Flip a table. Example usage: fsck -y /dev/sdb1 || fliptable
 alias tableflip='fliptable'
 alias :fliptable:='fliptable'
@@ -130,14 +125,6 @@ if [ -f "$HOME/.my_jasmine_server_port" ]; then
   # Put your jasmine port in ~/.my_jasmine_server_port (single line with just your port number)
   export JASMINE_SERVER_PORT=$(cat $HOME/.my_jasmine_server_port)
 fi
-
-allied_rsp() {
-  BRANDING_HOST=alliedinfopoint.continuity.net rsp
-}
-
-complytrac_rsp() {
-  BRANDING_HOST=complytrac.continuity.net rsp
-}
 
 # Allow for local environment configuration in ~/.zsh/*.zsh
 if [ -d ~/.zsh ]; then
