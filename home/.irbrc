@@ -6,13 +6,6 @@
 # require 'rubygems'
 # require 'pp'
 
-begin
-  require 'wirble'
-  Wirble.colorize
-rescue LoadError => err
-  warn "Couldn't load Wirble: #{err}"
-end
-
 if defined? Rails && Rails.env
   require 'logger'
   logger = Logger.new(STDOUT)
