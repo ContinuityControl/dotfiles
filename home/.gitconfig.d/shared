@@ -8,7 +8,7 @@
   lp = log --oneline --graph --color
   dfw = diff --word-diff=color
   nudge = push --force-with-lease
-  review-feature = log -p develop..HEAD --reverse
+  review-feature = log -p $(git config gitflow.branch.develop)..HEAD --reverse
 [color]
   status = true
   diff = true
