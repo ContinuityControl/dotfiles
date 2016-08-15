@@ -1,0 +1,15 @@
+#!/bin/sh
+
+git_flow_exists() {
+  command -v git-flow >/dev/null 2>&1
+}
+
+git_flow_initialized() {
+  git config gitflow.branch.develop && git config gitflow.branch.master
+}
+
+if git_flow_exists && git_flow_initialized; then
+  git log -p $(git config gitflow.branch.develop)..HEAD --reverse
+else
+  echo 'You need to have git-flow installed and initialized to run this command'
+fi
