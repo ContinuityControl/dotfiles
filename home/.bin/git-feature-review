@@ -11,5 +11,5 @@ git_flow_initialized() {
 if git_flow_exists && git_flow_initialized; then
   git log -p $(git config gitflow.branch.develop)..HEAD --reverse
 else
-  echo 'You need to have git-flow installed and initialized to run this command'
+  echo 'You need to have git-flow installed and initialized to run this command' 1>&2
 fi
