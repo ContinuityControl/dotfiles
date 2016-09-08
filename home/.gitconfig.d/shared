@@ -8,7 +8,6 @@
   lp = log --oneline --graph --color
   dfw = diff --word-diff=color
   nudge = push --force-with-lease
-  delete-merged = branch -d $(git branch --merged | grep -v $(git config gitflow.branch.develop))
 [color]
   status = true
   diff = true
