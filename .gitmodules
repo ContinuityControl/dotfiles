@@ -124,3 +124,6 @@
 [submodule "home/.vim/bundle/vim-mkdir"]
 	path = home/.vim/bundle/vim-mkdir
 	url = https://github.com/pbrisbin/vim-mkdir.git
+[submodule "home/.vim/bundle/swift.vim"]
+	path = home/.vim/bundle/swift.vim
+	url = git@github.com:keith/swift.vim.git
