@@ -194,3 +194,5 @@ set foldlevelstart=99
 " don't hide quoting in json files
 " https://github.com/elzr/vim-json#common-problems
 let g:vim_json_syntax_conceal = 0
+
+runtime! macros/matchit.vim
