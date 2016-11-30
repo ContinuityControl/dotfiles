@@ -82,9 +82,6 @@
 [submodule "home/.vim/bundle/CamelCaseMotion"]
 	path = home/.vim/bundle/CamelCaseMotion
 	url = https://github.com/bkad/CamelCaseMotion.git
-[submodule "home/.vim/bundle/taskpaper.vim"]
-	path = home/.vim/bundle/taskpaper.vim
-	url = https://github.com/davidoc/taskpaper.vim.git
 [submodule "home/.vim/bundle/csv.vim"]
 	path = home/.vim/bundle/csv.vim
 	url = https://github.com/chrisbra/csv.vim.git
