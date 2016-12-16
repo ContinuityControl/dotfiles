@@ -89,7 +89,7 @@ doge() {
   "
 }
 #ignore obnoxious stuff
-alias git='nocorrect git'
+alias git='nocorrect noglob git'
 alias rake='noglob rake'
 # Add the following to your ~/.bashrc or ~/.zshrc
 #
