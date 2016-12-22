@@ -2,7 +2,7 @@ require 'thor'
 require_relative 'feature'
 
 class FeatureCLI < Thor
-  desc "create STORY_NAME [labels]", "Create hotfix story and git branch for it"
+  desc "create STORY_NAME [--labels=one two three]", "Create hotfix story and git branch for it"
   long_desc <<-desc
     This script will create a feature pivotal story and start a feature branch for
     you. All you need to do is pass a story name. It will then create the branch
