@@ -27,6 +27,35 @@ dependencies by running bundle in the dotfiles directory
     cd ~/.homesick/repos/dotfiles/home
     bundle
 
+### Git Submodules
+
+In order for vim plugins (and a couple tmux ones) to work correctly, you have
+to go through a few steps.
+
+Enter your git user details into `~/.gitconfig.d/user` and make sure you have
+an ssh key added to Github.
+
+```
+[user]
+  name = [YOUR NAME HERE]
+  email = [YOUR EMAIL HERE]
+```
+
+Run `git submodule update` from the `~/.homesick/repos/dotfiles/home/.vim/bundle`
+directory.
+
+If at this point you have a bunch of unstaged changes in the gitsubmodule
+directories, this is a known quirk with submodules and can be fixed. Until you
+do, opening vim will likely result in a bunch of errors.
+
+Note: These steps assume that the unstaged changes are a bunch of deletions in
+each submodule directory. If this is not the case for you, then modify the
+`foreach` commands to execute the correct git commands to undo the changes you
+have.
+
+1. Run `git submodule foreach --recursive git reset`
+2. Run `git submodule foreach --recursive git co .`
+
 ### Updates
 
     homesick pull     homesick-vi-everywhere
