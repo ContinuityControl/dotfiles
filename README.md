@@ -22,7 +22,8 @@ Using the stock OSX version of git will likely cause problems. You probably want
 ### Optional
 
 If you're going to use hitch or other ruby scripts in our dotfiles, install gem
-dependencies by running bundle in the dotfiles directory
+dependencies by installing bundler (`gem install bundler`), and then running
+`bundle` in the dotfiles directory:
 
     cd ~/.homesick/repos/dotfiles/home
     bundle
