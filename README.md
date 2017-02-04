@@ -28,6 +28,10 @@ dependencies by installing bundler (`gem install bundler`), and then running
     cd ~/.homesick/repos/dotfiles/home
     bundle
 
+*NOTE:* if you use `rvm`, this will only install these gems for the environment
+specified by the `.ruby-{version,gemfile}`. You may need to switch to a
+different version of ruby.
+
 ### Git Submodules
 
 In order for vim plugins (and a couple tmux ones) to work correctly, you have
