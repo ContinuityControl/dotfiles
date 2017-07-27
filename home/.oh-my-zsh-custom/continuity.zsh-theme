@@ -7,8 +7,15 @@ if hash rvm-prompt 2>/dev/null; then
   local rvm_ruby='%{$fg[red]%}‹$(rvm-prompt s i v p g)›%{$reset_color%}'
 fi
 local git_branch='$(git_prompt_info)%{$reset_color%}'
+if type nvm >/dev/null 2>&1; then
+  local node_version_prompt=' %{$fg[green]%}‹node-$(nvm current 2>/dev/null)›%{$reset_color%} '
+elif type node >/dev/null 2>&1; then
+  local node_version_prompt=' %{$fg[green]%}‹node-$(node --version)›%{$reset_color%} '
+else
+  local node_version_prompt=''
+fi
 
-PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby} ${git_branch} \$BUNDLE_GEMFILE
+PROMPT="╭ ${user_host} ${current_dir} ${rvm_ruby}${node_version_prompt}${git_branch} \$BUNDLE_GEMFILE
 ╰ %B$%b "
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
