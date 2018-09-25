@@ -11,27 +11,27 @@ option :t, :today, 'open today sheet' do
 end
 
 option :p, :break, 'start a break' do
-  run
+  @run = true
 end
 
 option :b, :break, 'start a break' do
   set :timer, 5*60
-  run
+  @run = true
 end
 
 option :l, :long_break, 'start a long break' do
   set :timer, 10*60
-  run
+  @run = true
 end
 
 option :s, 'seconds num', 'run with custom seconds' do |num|
   @timer = num.to_i
-  run
+  @run = true
 end
 
 option :m, 'minutes num', 'run with custom minutes' do |num|
   @timer = num.to_i * 60
-  run
+  @run = true
 end
 
 option :r, :reset, 'reset status bar' do
