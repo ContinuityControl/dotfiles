@@ -124,3 +124,6 @@
 [submodule "home/.vim/bundle/vim-ember-hbs"]
 	path = home/.vim/bundle/vim-ember-hbs
 	url = https://github.com/joukevandermaas/vim-ember-hbs.git
+[submodule "home/.pyenv"]
+	path = home/.pyenv
+	url = https://github.com/pyenv/pyenv.git
