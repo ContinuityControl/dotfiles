@@ -166,6 +166,8 @@ let g:syntastic_scss_checkers = ['scss_lint']
 
 let g:syntastic_javascript_checkers = ['eslint']
 
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+
 " silence noisy erb warnings
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {"regex": "possibly useless use of a variable in void context"}
