@@ -178,7 +178,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " gitgutter: make the gutter always show, so it doesn't shift
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 " aliases for gitgutter
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
