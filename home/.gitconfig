@@ -5,3 +5,4 @@
   # load local changes last so personal settings can override shared settings
   path = ~/.gitconfig.d/user
   path = ~/.gitconfig.d/local
+  path = ~/.gitconfig.d/gitflow

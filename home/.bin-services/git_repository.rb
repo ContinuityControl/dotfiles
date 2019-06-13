@@ -18,11 +18,6 @@ class GitRepository
     if !master_up_to_date? || !develop_up_to_date?
       raise GitError, "Please pull --rebase master and develop"
     end
-
-    puts "Checking for existing hotfix branch"
-    if has_existing_branch_name?("hotfix")
-      raise GitFlowError, "You already have an existing hotfix branch"
-    end
   end
 
   def validate_for_feature!
