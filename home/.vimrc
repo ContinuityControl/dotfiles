@@ -195,9 +195,10 @@ set foldlevelstart=99
 " https://github.com/elzr/vim-json#common-problems
 let g:vim_json_syntax_conceal = 0
 
+runtime! macros/matchit.vim
+
 " putting this here so users can override anything specified above
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-runtime! macros/matchit.vim
