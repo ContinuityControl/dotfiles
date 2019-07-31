@@ -120,7 +120,7 @@
 	url = https://github.com/pbrisbin/vim-mkdir.git
 [submodule "home/.vim/bundle/swift.vim"]
 	path = home/.vim/bundle/swift.vim
-	url = https://github.com/github.com:keith/swift.vim.git
+	url = https://github.com/keith/swift.vim.git
 [submodule "home/.vim/bundle/vim-ember-hbs"]
 	path = home/.vim/bundle/vim-ember-hbs
 	url = https://github.com/joukevandermaas/vim-ember-hbs.git
