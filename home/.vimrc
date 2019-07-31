@@ -108,10 +108,6 @@ nmap <Leader>let Ilet(:<esc>ea)<esc>f=r{A }<esc>
 " Select some ruby, comma-"var", and it'll extract a local variable.
 vmap <Leader>var cyour_variable<esc>Oyour_variable = <esc>p0*
 
-if filereadable(glob("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
 vmap <Leader>z :call I18nTranslateString()<CR>
 
 " Replace double quotes with single quotes on the current line.
@@ -200,3 +196,9 @@ set foldlevelstart=99
 let g:vim_json_syntax_conceal = 0
 
 runtime! macros/matchit.vim
+
+" putting this here so users can override anything specified above
+if filereadable(glob("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
