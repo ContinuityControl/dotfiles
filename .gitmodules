@@ -127,3 +127,6 @@
 [submodule "home/.vim/bundle/vim-slim"]
 	path = home/.vim/bundle/vim-slim
 	url = https://github.com/slim-template/vim-slim.git
+[submodule "home/.vim/bundle/vim-eco"]
+	path = home/.vim/bundle/vim-eco
+	url = https://github.com/AndrewRadev/vim-eco.git
