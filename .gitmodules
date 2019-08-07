@@ -124,3 +124,6 @@
 [submodule "home/.vim/bundle/vim-ember-hbs"]
 	path = home/.vim/bundle/vim-ember-hbs
 	url = https://github.com/joukevandermaas/vim-ember-hbs.git
+[submodule "home/.vim/bundle/vim-slim"]
+	path = home/.vim/bundle/vim-slim
+	url = https://github.com/slim-template/vim-slim.git
