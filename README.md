@@ -72,3 +72,54 @@ have.
 
     cd ~/.homesick/repos/dotfiles
     bundle
+
+### Personal dotfiles
+
+If you want to track personal dotfiles that are gitignored, here is an approach.  (Not final, but see the note about `tmux`.)
+
+Make a private repo (`username/my-dotfiles`) with the private dotfiles you want to track.  It should have a structure like this:
+
+```
+.
+└── home
+    ├── .personal
+    │   ├── bin
+    │   │   ├── foo
+    │   │   └── bar
+    │   ├── gitconfig.d
+    │   │   └── user
+    │   ├── tmux
+    │   │   └── user.conf
+    │   ├── vim
+    │   │   └── spell
+    │   │       ├── en.utf-8.add
+    │   │       └── en.utf-8.add.spl
+    │   └── zsh
+    │       └── local.zsh
+    └── .vimrc.local
+```
+
+Then add another `homesick` castle:
+
+```
+homesick clone username/my-dotfiles
+homesick symlink my-dotfiles --force
+```
+
+...and *for now*, add these files:
+
+```
+$ cat ~/.zsh/local.zsh
+source "$HOME/.personal/zsh/local.zsh"
+$ cat ~/.gitconfig.d/user
+[include]
+  path = ~/.personal/gitconfig.d/user
+$ cat ~/.tmux/user.conf
+source-file "$HOME/.personal/tmux/user.conf"
+```
+
+(These are still gitignored, but at least they'll stay tiny.)
+
+#### Future direction
+
+The `zsh` and `git` configs could be made to look in `.personal` and skip if it doesn't exist (allowing this idea to be pulled up into this repository), but unfortunately `tmux` complains when it can't source a file, which is why we went this route for now.
