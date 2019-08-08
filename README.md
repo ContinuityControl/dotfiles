@@ -99,14 +99,16 @@ Make a private repo (`username/my-dotfiles`) with the private dotfiles you want 
     └── .vimrc.local
 ```
 
-Then add another `homesick` castle:
+Then add another `homesick` castle, after you set up `benjaminoakes/homesick-vi-everywhere` and `ContinuityControl/dotfiles`.
 
 ```
 homesick clone username/my-dotfiles
 homesick symlink my-dotfiles --force
 ```
 
-...and *for now*, add these files:
+(Note: you can't call it `username/dotfiles` because that would conflict with `ContinuityControl/dotfiles`.  Also, be aware that conflicting paths will overwrite.  It's best to keep personal dotfiles in `.personal` for this reason.)
+
+Then add these files (*for now*, more improvements coming later):
 
 ```
 $ cat ~/.zsh/local.zsh
