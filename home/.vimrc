@@ -158,20 +158,27 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " enable scss-lint, gem install scss-lint is required
-let g:syntastic_scss_checkers = ['scss_lint']
+let g:ale_scss_sasslint_executable = 'scss-lint'
 
-let g:syntastic_javascript_checkers = ['eslint']
+let g:ale_javascript_eslint_executable = 'eslint'
 
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+let g:ale_eruby_ruumba_executable = 'bundle'
+let g:ale_eruby_ruumba_options = '-P -e'
 
-" silence noisy erb warnings
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {"regex": "possibly useless use of a variable in void context"}
+let g:ale_ruby_ruby_executable = 'ruby'
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_ruby_rubocop_options = '-P'
 
-" syntastic: add statusline flag
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:ale_linters = {
+      \'ruby': ['rubocop', 'ruby'],
+      \'eruby': ['erubi', 'ruumba'],
+      \'javascript': ['eslint']
+      \}
+
+let g:ale_fixers = {
+      \'*': ['remove_trailing_lines']
+      \}
+let g:ale_fix_on_save = 1
 
 " gitgutter: make the gutter always show, so it doesn't shift
 set signcolumn=yes

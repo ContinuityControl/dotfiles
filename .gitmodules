@@ -4,9 +4,6 @@
 [submodule "home/.vim/bundle/supertab"]
 	path = home/.vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "home/.vim/bundle/syntastic"]
-	path = home/.vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "home/.vim/bundle/tlib_vim"]
 	path = home/.vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
@@ -130,3 +127,6 @@
 [submodule "home/.vim/bundle/vim-eco"]
 	path = home/.vim/bundle/vim-eco
 	url = https://github.com/AndrewRadev/vim-eco.git
+[submodule "home/.vim/bundle/ale"]
+	path = home/.vim/bundle/ale
+	url = https://github.com/dense-analysis/ale.git
