@@ -1,10 +1,6 @@
 " Don't emulate vi bugs (must be first; has side effects)
 set nocompatible
 
-" Load Pathogen bundles
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
 set number
 set ruler
 syntax on
