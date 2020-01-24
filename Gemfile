@@ -7,6 +7,7 @@ gem 'thyme'
 gem 'git'
 gem 'sqlint'
 gem 'thor'
+gem 'solargraph'
 
 # stuff for pivotal
 gem 'activesupport'

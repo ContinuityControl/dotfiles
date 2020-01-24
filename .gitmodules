@@ -130,3 +130,10 @@
 [submodule "home/.vim/pack/dotfiles/start/vim-terraform"]
 	path = home/.vim/pack/dotfiles/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule "home/.vim/pack/dotfiles/start/coc.nvim"]
+	path = home/.vim/pack/dotfiles/start/coc.nvim
+	url = git@github.com:neoclide/coc.nvim.git
+	branch = release
+[submodule "home/.vim/pack/dotfiles/start/vim-snippets"]
+	path = home/.vim/pack/dotfiles/start/vim-snippets
+	url = git@github.com:honza/vim-snippets.git

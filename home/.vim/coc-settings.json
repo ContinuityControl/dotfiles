@@ -1,0 +1,6 @@
+{
+  "solargraph.checkGemVersion": false,
+  "solargraph.diagnostics": false,
+  "solargraph.promptDownload": false,
+  "suggest.maxCompleteItemCount": 20
+}
