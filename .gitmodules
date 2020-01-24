@@ -13,9 +13,6 @@
 [submodule "home/.vim/pack/dotfiles/start/vim-align"]
 	path = home/.vim/pack/dotfiles/start/vim-align
 	url = https://github.com/tsaleh/vim-align.git
-[submodule "home/.vim/pack/dotfiles/start/vim-colors-solarized"]
-	path = home/.vim/pack/dotfiles/start/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "home/.vim/pack/dotfiles/start/vim-endwise"]
 	path = home/.vim/pack/dotfiles/start/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
@@ -130,3 +127,6 @@
 [submodule "home/.vim/pack/dotfiles/start/vim-terraform"]
 	path = home/.vim/pack/dotfiles/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule "home/.vim/pack/dotfiles/start/vim-solarized8"]
+	path = home/.vim/pack/dotfiles/start/vim-solarized8
+	url = git@github.com:lifepillar/vim-solarized8.git
