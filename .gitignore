@@ -7,3 +7,5 @@ home/.tmux/resurrect/
 home/.tmux/user.conf
 home/.vim/spell
 home/.vim/backup
+home/.vim/plugged
+home/.vim/local

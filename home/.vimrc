@@ -1,3 +1,57 @@
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+Plug 'https://github.com/AndrewRadev/vim-eco'
+Plug 'https://github.com/MarcWeber/vim-addon-mw-utils'
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/lifepillar/vim-solarized8'
+Plug 'https://github.com/bkad/CamelCaseMotion'
+Plug 'https://github.com/briancollins/vim-jst'
+Plug 'https://github.com/chrisbra/csv.vim'
+Plug 'https://github.com/dense-analysis/ale'
+Plug 'https://github.com/depuracao/vim-rdoc'
+Plug 'https://github.com/ecomba/vim-ruby-refactoring'
+Plug 'https://github.com/elzr/vim-json'
+Plug 'https://github.com/ervandew/supertab'
+Plug 'https://github.com/hashivim/vim-terraform'
+Plug 'https://github.com/joukevandermaas/vim-ember-hbs'
+Plug 'https://github.com/kana/vim-textobj-user'
+Plug 'https://github.com/kchmck/vim-coffee-script'
+Plug 'https://github.com/keith/swift.vim'
+Plug 'https://github.com/kien/ctrlp.vim'
+Plug 'https://github.com/mmai/wikilink'
+Plug 'https://github.com/nelstrom/vim-textobj-rubyblock'
+Plug 'https://github.com/othree/html5.vim'
+Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/pbrisbin/vim-mkdir'
+Plug 'https://github.com/rodjek/vim-puppet'
+Plug 'https://github.com/scrooloose/nerdcommenter'
+Plug 'https://github.com/scrooloose/nerdtree'
+Plug 'https://github.com/skwp/vim-rspec'
+Plug 'https://github.com/slim-template/vim-slim'
+Plug 'https://github.com/tomtom/tlib_vim'
+Plug 'https://github.com/tpope/vim-abolish'
+Plug 'https://github.com/tpope/vim-endwise'
+Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-git'
+Plug 'https://github.com/tpope/vim-markdown'
+Plug 'https://github.com/tpope/vim-obsession'
+Plug 'https://github.com/tpope/vim-rails'
+Plug 'https://github.com/tpope/vim-repeat'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tsaleh/vim-align'
+Plug 'https://github.com/vim-ruby/vim-ruby'
+Plug 'https://github.com/vim-scripts/DeleteTrailingWhitespace'
+Plug 'https://github.com/vim-scripts/ShowTrailingWhitespace'
+
+if filereadable(glob("~/.vim/local/vimplug"))
+  source ~/.vim/local/vimplug
+endif
+
+" Initialize plugin system
+call plug#end()
+
 " Don't emulate vi bugs (must be first; has side effects)
 set nocompatible
 
