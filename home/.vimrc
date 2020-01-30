@@ -165,11 +165,10 @@ let g:ale_scss_stylelint_executable = 'stylelint'
 let g:ale_javascript_eslint_executable = 'eslint'
 
 let g:ale_eruby_ruumba_executable = 'bundle'
-let g:ale_eruby_ruumba_options = '-P -e'
+let g:ale_eruby_ruumba_options = '-e'
 
 let g:ale_ruby_ruby_executable = 'ruby'
 let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_ruby_rubocop_options = '-P'
 
 let g:ale_linters = {
       \'ruby': ['rubocop', 'ruby'],
@@ -179,8 +178,12 @@ let g:ale_linters = {
       \}
 
 let g:ale_fixers = {
-      \'*': ['remove_trailing_lines']
+      \'*': ['remove_trailing_lines'],
+      \'javascript': ['eslint'],
+      \'scss': ['stylelint'],
+      \'ruby': ['rubocop'],
       \}
+let g:ale_fix_on_save_ignore = ['stylelint', 'eslint', 'rubocop']
 let g:ale_fix_on_save = 1
 
 " gitgutter: make the gutter always show, so it doesn't shift
