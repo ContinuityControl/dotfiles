@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'homesick'
 gem 'hitch'
-gem 'scss_lint'
 gem 'thyme'
 gem 'git'
 gem 'sqlint'

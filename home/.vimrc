@@ -160,8 +160,7 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" enable scss-lint, gem install scss-lint is required
-let g:ale_scss_sasslint_executable = 'scss-lint'
+let g:ale_scss_stylelint_executable = 'stylelint'
 
 let g:ale_javascript_eslint_executable = 'eslint'
 
@@ -176,6 +175,7 @@ let g:ale_linters = {
       \'ruby': ['rubocop', 'ruby'],
       \'eruby': ['erubi', 'ruumba'],
       \'javascript': ['eslint']
+      \'scss': ['stylelint'],
       \}
 
 let g:ale_fixers = {
