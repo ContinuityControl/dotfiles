@@ -243,8 +243,8 @@ let g:ale_fix_on_save = 1
 " gitgutter: make the gutter always show, so it doesn't shift
 set signcolumn=yes
 " aliases for gitgutter
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 " Re-indent the whole file and go back to where you were
 map <leader>= gg=G''
