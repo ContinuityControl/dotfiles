@@ -94,16 +94,20 @@ alias rake='noglob rake'
 # Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
 
 hitch() {
-  (rvm system; command hitch "$@")
+  if [[ -s "$HOME/.rvm" ]]; then
+    (rvm system; command hitch "$@")
+  fi
   if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
 }
 alias unhitch='hitch -u'
 alias vi='vim'
 alias openwork='vim -p $(git ls-files -m) $(git ls-files --others --exclude-standard)'
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/bin # Make personal scripts available
-PATH=$PATH:$HOME/.bin # Make dotfiles scripts available
+if [[ -s "$HOME/.rvm" ]]; then
+  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+  PATH=$PATH:$HOME/bin # Make personal scripts available
+  PATH=$PATH:$HOME/.bin # Make dotfiles scripts available
+fi
 
 # tell nokogiri to use sysem libraries instead of compiling packaged libs
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
@@ -139,4 +143,6 @@ source $ZSH/oh-my-zsh.sh
 
 # RVM is a silly thing. This fixes tmux not loading gemset
 # http://stackoverflow.com/a/6097090/3010499
-cd .
+if [[ -s "$HOME/.rvm" ]]; then
+  cd .
+fi
