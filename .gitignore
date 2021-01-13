@@ -9,3 +9,5 @@ home/.vim/spell
 home/.vim/backup
 home/.vim/plugged
 home/.vim/local
+home/.oh-my-zsh-custom/*
+!home/.oh-my-zsh-custom/continuity.zsh-theme
