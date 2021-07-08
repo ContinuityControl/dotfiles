@@ -4,8 +4,6 @@ export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 export ZSH_THEME="continuity"
 plugins=(git git-flow rails ruby osx gem vi-mode rvm bundler)
 
-source $ZSH/oh-my-zsh.sh
-
 export LC_ALL=en_US.UTF-8
 
 #disable ctrl-s/suspension
@@ -137,6 +135,7 @@ fi
 if [ ! -f "$HOME/.tmux/user.conf" ]; then
   touch $HOME/.tmux/user.conf
 fi
+source $ZSH/oh-my-zsh.sh
 
 # RVM is a silly thing. This fixes tmux not loading gemset
 # http://stackoverflow.com/a/6097090/3010499
