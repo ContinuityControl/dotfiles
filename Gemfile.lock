@@ -39,12 +39,20 @@ GEM
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
-    mimemagic (0.3.5)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     multi_json (1.15.0)
     multipart-post (2.1.1)
+    nokogiri (1.12.3)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     pg_query (1.3.0)
     public_suffix (4.0.6)
+    racc (1.5.2)
+    rake (13.0.6)
     rchardet (1.8.0)
     representable (3.0.4)
       declarative (< 0.1.0)
@@ -93,4 +101,4 @@ DEPENDENCIES
   tracker_api
 
 BUNDLED WITH
-   2.2.3
+   2.2.22
