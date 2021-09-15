@@ -113,7 +113,7 @@ export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 if [ -f "$HOME/.my_pairing_port" ]; then
   # Put your pairing port in ~/.my_pairing_port (single line with just your port number)
   my_pairing_port=$(cat $HOME/.my_pairing_port)
-  alias rsp="rails server -b 127.0.0.1 --port ${my_pairing_port} puma"
+  alias rsp="rails server -u puma -b 127.0.0.1 --port ${my_pairing_port}"
 fi
 
 if [ -f "$HOME/.my_live_reload_port" ]; then
