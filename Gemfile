@@ -4,6 +4,7 @@ gem 'homesick'
 gem 'hitch'
 gem 'thyme'
 gem 'git'
+gem 'solargraph'
 gem 'sqlint'
 gem 'thor'
 
