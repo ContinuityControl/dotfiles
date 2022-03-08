@@ -1,2 +1,5 @@
 ## LOCAL VIM PLUGINS
 .vim/pack/local/
+.byebug_history
+.envrc
+tags
