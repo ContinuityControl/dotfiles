@@ -103,11 +103,6 @@ alias unhitch='hitch -u'
 alias vi='vim'
 alias openwork='vim -p $(git ls-files -m) $(git ls-files --others --exclude-standard)'
 
-if [[ -s "$HOME/.rvm" ]]; then
-  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-  PATH=$PATH:$HOME/bin # Make personal scripts available
-  PATH=$PATH:$HOME/.bin # Make dotfiles scripts available
-fi
 
 # tell nokogiri to use sysem libraries instead of compiling packaged libs
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
@@ -141,8 +136,4 @@ if [ ! -f "$HOME/.tmux/user.conf" ]; then
 fi
 source $ZSH/oh-my-zsh.sh
 
-# RVM is a silly thing. This fixes tmux not loading gemset
-# http://stackoverflow.com/a/6097090/3010499
-if [[ -s "$HOME/.rvm" ]]; then
-  cd .
-fi
+eval "$(rbenv init - zsh)"
