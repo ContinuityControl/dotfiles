@@ -2,7 +2,7 @@ export EDITOR=vim
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 export ZSH_THEME="continuity"
-plugins=(git git-flow rails ruby osx gem vi-mode rvm bundler)
+plugins=(git git-flow rails ruby macos gem vi-mode rvm bundler)
 
 export LC_ALL=en_US.UTF-8
 
