@@ -96,6 +96,8 @@ alias rake='noglob rake'
 alias vi='vim'
 alias openwork='vim -p $(git ls-files -m) $(git ls-files --others --exclude-standard)'
 
+PATH=$PATH:$HOME/bin # Make personal scripts available
+PATH=$PATH:$HOME/.bin # Make dotfiles scripts available
 
 # tell nokogiri to use sysem libraries instead of compiling packaged libs
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
